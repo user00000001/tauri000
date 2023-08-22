@@ -3,8 +3,36 @@ import { useState } from "react";
 import reactLogo from "../assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "../App.css";
-import MButton from "./Button";
-import MFloatButton from "./FloatButton";
+import {
+  Button01,
+  Button02,
+  Button03,
+  Button04,
+  Button05,
+  Button06,
+  Button07,
+  Button08,
+  Button09,
+} from "./Button";
+import {
+  FButton01,
+  FButton02,
+  FButton03,
+  FButton04,
+  FButton05,
+  FButton06,
+  FButton07,
+  FButton08,
+  FButton09,
+  FButton10,
+} from "./FloatButton";
+import {
+  Icon01,
+  Icon02,
+  Icon03,
+  Icon04,
+  Icon05,
+} from "./Icon";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -60,79 +88,99 @@ const items: TabsProps['items'] = [
   },
   {
     label: "Button - Type",
-    children: <MButton.Button01 />
+    children: <Button01 />
   },
   {
     label: "Button - Icon",
-    children: <MButton.Button02 />
+    children: <Button02 />
   },
   {
     label: "Button - Size",
-    children: <MButton.Button03 />
+    children: <Button03 />
   },
   {
     label: "Button - Disabled",
-    children: <MButton.Button04 />
+    children: <Button04 />
   },
   {
     label: "Button - Loading",
-    children: <MButton.Button05 />
+    children: <Button05 />
   },
   {
     label: "Button - Mutiple Buttons",
-    children: <MButton.Button06 />
+    children: <Button06 />
   },
   {
     label: "Button - Ghost Button",
-    children: <MButton.Button07 />
+    children: <Button07 />
   },
   {
     label: "Button - Danger Buttons",
-    children: <MButton.Button08 />
+    children: <Button08 />
   },
   {
     label: "Button - Block Button",
-    children: <MButton.Button09 />
+    children: <Button09 />
   },
   {
     label: "FloatButton - Basic",
-    children: <MFloatButton.C01 />
+    children: <FButton01 />
   },
   {
     label: "FloatButton - Type",
-    children: <MFloatButton.C02 />
+    children: <FButton02 />
   },
   {
     label: "FloatButton - Shape",
-    children: <MFloatButton.C03 />
+    children: <FButton03 />
   },
   {
     label: "FloatButton - Description",
-    children: <MFloatButton.C04 />
+    children: <FButton04 />
   },
   {
     label: "FloatButton - FloatButton with tooltip",
-    children: <MFloatButton.C05 />
+    children: <FButton05 />
   },
   {
     label: "FloatButton - FloatButton Group",
-    children: <MFloatButton.C06 />
+    children: <FButton06 />
   },
   {
     label: "FloatButton - Menu mode",
-    children: <MFloatButton.C07 />
+    children: <FButton07 />
   },
   {
     label: "FloatButton - Controlled mode",
-    children: <MFloatButton.C08 />
+    children: <FButton08 />
   },
   {
     label: "FloatButton - BackTop",
-    children: <MFloatButton.C09 />
+    children: <FButton09 />
   },
   {
     label: "FloatButton - badge",
-    children: <MFloatButton.C10 />
+    children: <FButton10 />
+  },
+  {
+    label: "Icon - Basic",
+    children: <Icon01 />
+  },
+  {
+    label: "Icon - Two-tone icon and colorful icon",
+    children: <Icon02 />
+  },
+  {
+    label: "Icon - Custom Icon",
+    children: <Icon03 />
+  },
+  {
+    label: "Icon - Use iconfont.cn",
+    children: <Icon04 />
+  },
+  {
+    label: "Icon - Multiple resources from iconfont.cn",
+    children: <Icon05 />
   },
 ].map((v, i) => ({ key: i.toString(), ...v }));
 

@@ -179,12 +179,12 @@ const Button06: React.FC = () => (
   <Space direction="vertical">
     <Button type="primary">primary</Button>
     <Button>Secondary</Button>
-    <Dropdown.Button menu={{items, onClick: onMenuClick}}>Actions</Dropdown.Button>
+    <Dropdown.Button menu={{ items, onClick: onMenuClick }}>Actions</Dropdown.Button>
   </Space>
 );
 
 const Button07: React.FC = () => (
-  <Space style={{backgroundColor: "lightgrey"}} wrap>
+  <Space style={{ backgroundColor: "lightgrey" }} wrap>
     <Button type="primary" ghost>Primary</Button>
     <Button ghost>Default</Button>
     <Button ghost type="dashed">Dashed</Button>
@@ -203,7 +203,7 @@ const Button08: React.FC = () => (
 );
 
 const Button09: React.FC = () => (
-  <Space direction="vertical" style={{width: "100%"}}>
+  <Space direction="vertical" style={{ width: "100%" }}>
     <Button type="primary" block>Primary</Button>
     <Button block>Default</Button>
     <Button type="dashed" block>Dashed</Button>
@@ -213,7 +213,7 @@ const Button09: React.FC = () => (
   </Space>
 );
 
-export default {
+export {
   Button01,
   Button02,
   Button03,
