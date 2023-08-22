@@ -3,11 +3,7 @@ import { useState } from "react";
 import reactLogo from "../assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "../App.css";
-import {
-  Button01,
-  Button02,
-  Button03
-} from "./Button";
+import MButton from "./Button";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -59,19 +55,43 @@ function App() {
 const items: TabsProps['items'] = [
   {
     label: "Home",
-    children: <App/>
+    children: <App />
   },
   {
-    label: "Button01",
-    children: <Button01/>
+    label: "Button - Type",
+    children: <MButton.Button01 />
   },
   {
-    label: "Button02",
-    children: <Button02/>
+    label: "Button - Icon",
+    children: <MButton.Button02 />
   },
   {
-    label: "Button03",
-    children: <Button03 />
+    label: "Button - Size",
+    children: <MButton.Button03 />
+  },
+  {
+    label: "Button - Disabled",
+    children: <MButton.Button04 />
+  },
+  {
+    label: "Button - Loading",
+    children: <MButton.Button05 />
+  },
+  {
+    label: "Button - Mutiple Buttons",
+    children: <MButton.Button06 />
+  },
+  {
+    label: "Button - Ghost Button",
+    children: <MButton.Button07 />
+  },
+  {
+    label: "Button - Danger Buttons",
+    children: <MButton.Button08 />
+  },
+  {
+    label: "Button - Block Button",
+    children: <MButton.Button09 />
   },
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
