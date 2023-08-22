@@ -4,6 +4,7 @@ import reactLogo from "../assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "../App.css";
 import MButton from "./Button";
+import MFloatButton from "./FloatButton";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -92,6 +93,46 @@ const items: TabsProps['items'] = [
   {
     label: "Button - Block Button",
     children: <MButton.Button09 />
+  },
+  {
+    label: "FloatButton - Basic",
+    children: <MFloatButton.C01 />
+  },
+  {
+    label: "FloatButton - Type",
+    children: <MFloatButton.C02 />
+  },
+  {
+    label: "FloatButton - Shape",
+    children: <MFloatButton.C03 />
+  },
+  {
+    label: "FloatButton - Description",
+    children: <MFloatButton.C04 />
+  },
+  {
+    label: "FloatButton - FloatButton with tooltip",
+    children: <MFloatButton.C05 />
+  },
+  {
+    label: "FloatButton - FloatButton Group",
+    children: <MFloatButton.C06 />
+  },
+  {
+    label: "FloatButton - Menu mode",
+    children: <MFloatButton.C07 />
+  },
+  {
+    label: "FloatButton - Controlled mode",
+    children: <MFloatButton.C08 />
+  },
+  {
+    label: "FloatButton - BackTop",
+    children: <MFloatButton.C09 />
+  },
+  {
+    label: "FloatButton - badge",
+    children: <MFloatButton.C10 />
   },
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
