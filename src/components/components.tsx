@@ -33,6 +33,15 @@ import {
   Icon04,
   Icon05,
 } from "./Icon";
+import {
+  Typography01,
+  Typography02,
+  Typography03,
+  Typography04,
+  Typography05,
+  Typography06,
+  Typography07,
+} from "./Typography";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -181,6 +190,34 @@ const items: TabsProps['items'] = [
   {
     label: "Icon - Multiple resources from iconfont.cn",
     children: <Icon05 />
+  },
+  {
+    label: "Typography - Basic",
+    children: <Typography01 />
+  },
+  {
+    label: "Typography - Title Component",
+    children: <Typography02 />
+  },
+  {
+    label: "Typography - Text and link Component",
+    children: <Typography03 />
+  },
+  {
+    label: "Typography - Interactive",
+    children: <Typography04 />
+  },
+  {
+    label: "Typography - Ellipsis",
+    children: <Typography05 />
+  },
+  {
+    label: "Typography - Ellipsis from middle",
+    children: <Typography06 />
+  },
+  {
+    label: "Typography - suffix",
+    children: <Typography07 />
   },
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
