@@ -8,6 +8,7 @@ import FloatButtonXX from "./FloatButton";
 import IconXX from "./Icon";
 import TypographyXX from "./Typography";
 import DiviverXX from "./Divider";
+import GridXX from "./Grid";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -66,6 +67,7 @@ const items: TabsProps['items'] = [
   ...IconXX,
   ...TypographyXX,
   ...DiviverXX,
+  ...GridXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
