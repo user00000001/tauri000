@@ -224,3 +224,42 @@ export {
   Button08,
   Button09,
 }
+
+export default [
+  {
+    label: "Button - Type",
+    children: <Button01 />
+  },
+  {
+    label: "Button - Icon",
+    children: <Button02 />
+  },
+  {
+    label: "Button - Size",
+    children: <Button03 />
+  },
+  {
+    label: "Button - Disabled",
+    children: <Button04 />
+  },
+  {
+    label: "Button - Loading",
+    children: <Button05 />
+  },
+  {
+    label: "Button - Mutiple Buttons",
+    children: <Button06 />
+  },
+  {
+    label: "Button - Ghost Button",
+    children: <Button07 />
+  },
+  {
+    label: "Button - Danger Buttons",
+    children: <Button08 />
+  },
+  {
+    label: "Button - Block Button",
+    children: <Button09 />
+  }
+]

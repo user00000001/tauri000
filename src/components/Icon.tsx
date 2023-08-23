@@ -123,3 +123,26 @@ export {
   Icon04,
   Icon05
 }
+
+export default [
+  {
+    label: "Icon - Basic",
+    children: <Icon01 />
+  },
+  {
+    label: "Icon - Two-tone icon and colorful icon",
+    children: <Icon02 />
+  },
+  {
+    label: "Icon - Custom Icon",
+    children: <Icon03 />
+  },
+  {
+    label: "Icon - Use iconfont.cn",
+    children: <Icon04 />
+  },
+  {
+    label: "Icon - Multiple resources from iconfont.cn",
+    children: <Icon05 />
+  }
+]

@@ -116,3 +116,46 @@ export {
   FButton09,
   FButton10,
 };
+
+export default [
+  {
+    label: "FloatButton - Basic",
+    children: <FButton01 />
+  },
+  {
+    label: "FloatButton - Type",
+    children: <FButton02 />
+  },
+  {
+    label: "FloatButton - Shape",
+    children: <FButton03 />
+  },
+  {
+    label: "FloatButton - Description",
+    children: <FButton04 />
+  },
+  {
+    label: "FloatButton - FloatButton with tooltip",
+    children: <FButton05 />
+  },
+  {
+    label: "FloatButton - FloatButton Group",
+    children: <FButton06 />
+  },
+  {
+    label: "FloatButton - Menu mode",
+    children: <FButton07 />
+  },
+  {
+    label: "FloatButton - Controlled mode",
+    children: <FButton08 />
+  },
+  {
+    label: "FloatButton - BackTop",
+    children: <FButton09 />
+  },
+  {
+    label: "FloatButton - badge",
+    children: <FButton10 />
+  }
+]

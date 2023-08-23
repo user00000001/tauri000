@@ -268,3 +268,34 @@ export {
   Typography01,
   Typography02,
 }
+
+export default [
+  {
+    label: "Typography - Basic",
+    children: <Typography01 />
+  },
+  {
+    label: "Typography - Title Component",
+    children: <Typography02 />
+  },
+  {
+    label: "Typography - Text and link Component",
+    children: <Typography03 />
+  },
+  {
+    label: "Typography - Interactive",
+    children: <Typography04 />
+  },
+  {
+    label: "Typography - Ellipsis",
+    children: <Typography05 />
+  },
+  {
+    label: "Typography - Ellipsis from middle",
+    children: <Typography06 />
+  },
+  {
+    label: "Typography - suffix",
+    children: <Typography07 />
+  }
+]
