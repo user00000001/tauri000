@@ -9,6 +9,7 @@ import IconXX from "./Icon";
 import TypographyXX from "./Typography";
 import DiviverXX from "./Divider";
 import GridXX from "./Grid";
+import LayoutXX from "./Layout";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -68,6 +69,7 @@ const items: TabsProps['items'] = [
   ...TypographyXX,
   ...DiviverXX,
   ...GridXX,
+  ...LayoutXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
