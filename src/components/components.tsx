@@ -11,6 +11,7 @@ import DiviverXX from "./Divider";
 import GridXX from "./Grid";
 import LayoutXX from "./Layout";
 import SpaceXX from "./Space";
+import AnchorXX from "./Anchor";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -72,6 +73,7 @@ const items: TabsProps['items'] = [
   ...GridXX,
   ...LayoutXX,
   ...SpaceXX,
+  ...AnchorXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
