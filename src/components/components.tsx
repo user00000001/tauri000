@@ -13,6 +13,7 @@ import LayoutXX from "./Layout";
 import SpaceXX from "./Space";
 import AnchorXX from "./Anchor";
 import BreadcrumbXX from "./Breadcrumb";
+import DropdownXX from "./Dropdown";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -76,6 +77,7 @@ const items: TabsProps['items'] = [
   ...SpaceXX,
   ...AnchorXX,
   ...BreadcrumbXX,
+  ...DropdownXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }

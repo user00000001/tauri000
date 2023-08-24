@@ -11,6 +11,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
+import "./Breadcrumb.css";
 
 export const Breadcrumb01: React.FC = () => (
   <Breadcrumb
