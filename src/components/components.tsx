@@ -17,6 +17,7 @@ import DropdownXX from "./Dropdown";
 import MenuXX from "./Menu";
 import PaginationXX from "./Pagination";
 import StepsXX from "./Steps";
+import AutoCompleteXX from "./AutoComplete";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -84,6 +85,7 @@ const items: TabsProps['items'] = [
   ...MenuXX,
   ...PaginationXX,
   ...StepsXX,
+  ...AutoCompleteXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
