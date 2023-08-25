@@ -21,6 +21,7 @@ import AutoCompleteXX from "./AutoComplete";
 import CascaderXX from "./Cascader";
 import CheckboxXX from "./Checkbox";
 import ColerPickerXX from "./ColerPicker";
+import DatePickerXX from "./DatePicker";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -92,6 +93,7 @@ const items: TabsProps['items'] = [
   ...CascaderXX,
   ...CheckboxXX,
   ...ColerPickerXX,
+  ...DatePickerXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
