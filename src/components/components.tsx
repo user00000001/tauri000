@@ -15,6 +15,7 @@ import AnchorXX from "./Anchor";
 import BreadcrumbXX from "./Breadcrumb";
 import DropdownXX from "./Dropdown";
 import MenuXX from "./Menu";
+import PaginationXX from "./Pagination";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -80,6 +81,7 @@ const items: TabsProps['items'] = [
   ...BreadcrumbXX,
   ...DropdownXX,
   ...MenuXX,
+  ...PaginationXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
