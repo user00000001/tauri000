@@ -19,6 +19,7 @@ import PaginationXX from "./Pagination";
 import StepsXX from "./Steps";
 import AutoCompleteXX from "./AutoComplete";
 import CascaderXX from "./Cascader";
+import CheckboxXX from "./Checkbox";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -88,6 +89,7 @@ const items: TabsProps['items'] = [
   ...StepsXX,
   ...AutoCompleteXX,
   ...CascaderXX,
+  ...CheckboxXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
