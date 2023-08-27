@@ -22,6 +22,7 @@ import CascaderXX from "./Cascader";
 import CheckboxXX from "./Checkbox";
 import ColerPickerXX from "./ColerPicker";
 import DatePickerXX from "./DatePicker";
+import FormXX from "./Form";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -94,6 +95,7 @@ const items: TabsProps['items'] = [
   ...CheckboxXX,
   ...ColerPickerXX,
   ...DatePickerXX,
+  ...FormXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
