@@ -22,6 +22,11 @@ import {
   AutoComplete,
   Row,
   Col,
+  theme,
+  TimePicker,
+  Mentions,
+  ColorPicker,
+  Rate,
 } from "antd"
 import {
   type FormInstance,
@@ -30,12 +35,15 @@ import {
 import {
   type CascaderProps,
 } from "antd/es/cascader";
-import { 
-  InfoCircleOutlined, 
-  LockOutlined, 
-  MinusCircleOutlined, 
-  PlusOutlined, 
+import {
+  DownOutlined,
+  InboxOutlined,
+  InfoCircleOutlined,
+  LockOutlined,
+  MinusCircleOutlined,
+  PlusOutlined,
   SmileOutlined,
+  UploadOutlined,
   UserOutlined
 } from "@ant-design/icons";
 
@@ -62,15 +70,15 @@ export const Form01: React.FC = () => (
     autoComplete="off">
     <Form.Item<FieldType> label="Username" name="username" rules={[{ required: true, message: "Please input your username!" }]}>
       <Input />
-      </Form.Item>
+    </Form.Item>
     <Form.Item<FieldType> label="Password" name="password" rules={[{ required: true, message: "Please input your password!" }]}>
       <Input.Password />
-      </Form.Item>
+    </Form.Item>
     <Form.Item<FieldType>
       name="remember"
       valuePropName="checked"
-      wrapperCol={{offset:8, span:16}}><Checkbox>Remember me</Checkbox></Form.Item>
-    <Form.Item wrapperCol={{offset:  8, span: 16}}>
+      wrapperCol={{ offset: 8, span: 16 }}><Checkbox>Remember me</Checkbox></Form.Item>
+    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
       <Button type="primary" htmlType="submit">Submit</Button>
     </Form.Item>
   </Form>
@@ -1565,6 +1573,626 @@ export const Form23: React.FC = () => {
   );
 };
 
+const AdvancedSearchForm = () => {
+  const { token } = theme.useToken();
+  const [form] = Form.useForm();
+  const [expand, setExpand] = useState(false);
+  const formStyle: React.CSSProperties = {
+    maxWidth: 'none',
+    background: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    padding: 24,
+  };
+  const getFields = () => {
+    const count = expand ? 10 : 6;
+    const children = [];
+    for (let i = 0; i < count; i++) {
+      children.push(
+        <Col span={8} key={i}>
+          {i % 3 !== 1 ? (
+            <Form.Item
+              name={`field-${i}`}
+              label={`Field ${i}`}
+              rules={[
+                {
+                  required: true,
+                  message: 'Input something!',
+                },
+              ]}
+            >
+              <Input placeholder="placeholder" />
+            </Form.Item>
+          ) : (
+            <Form.Item
+              name={`field-${i}`}
+              label={`Field ${i}`}
+              rules={[
+                {
+                  required: true,
+                  message: 'Select something!',
+                },
+              ]}
+              initialValue="1"
+            >
+              <Select>
+                <Option value="1">
+                  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
+                </Option>
+                <Option value="2">222</Option>
+              </Select>
+            </Form.Item>
+          )}
+        </Col>,
+      );
+    }
+    return children;
+  };
+  const onFinish = (values: any) => {
+    console.log('Received values of form: ', values);
+  };
+  return (
+    <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
+      <Row gutter={24}>{getFields()}</Row>
+      <div style={{ textAlign: 'right' }}>
+        <Space size="small">
+          <Button type="primary" htmlType="submit">
+            Search
+          </Button>
+          <Button
+            onClick={() => {
+              form.resetFields();
+            }}
+          >
+            Clear
+          </Button>
+          <a
+            style={{ fontSize: 12 }}
+            onClick={() => {
+              setExpand(!expand);
+            }}
+          >
+            <DownOutlined rotate={expand ? 180 : 0} /> Collapse
+          </a>
+        </Space>
+      </div>
+    </Form>
+  );
+};
+export const Form24: React.FC = () => {
+  const { token } = theme.useToken();
+  const listStyle: React.CSSProperties = {
+    lineHeight: '200px',
+    textAlign: 'center',
+    background: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    marginTop: 16,
+  };
+  return (
+    <>
+      <AdvancedSearchForm />
+      <div style={listStyle}>Search Result List</div>
+    </>
+  );
+};
+
+interface Values {
+  title: string;
+  description: string;
+  modifier: string;
+}
+interface CollectionCreateFormProps {
+  open: boolean;
+  onCreate: (values: Values) => void;
+  onCancel: () => void;
+}
+const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
+  open,
+  onCreate,
+  onCancel,
+}) => {
+  const [form] = Form.useForm();
+  return (
+    <Modal
+      open={open}
+      title="Create a new collection"
+      okText="Create"
+      cancelText="Cancel"
+      onCancel={onCancel}
+      onOk={() => {
+        form
+          .validateFields()
+          .then((values) => {
+            form.resetFields();
+            onCreate(values);
+          })
+          .catch((info) => {
+            console.log('Validate Failed:', info);
+          });
+      }}
+    >
+      <Form
+        form={form}
+        layout="vertical"
+        name="form_in_modal"
+        initialValues={{ modifier: 'public' }}
+      >
+        <Form.Item
+          name="title"
+          label="Title"
+          rules={[{ required: true, message: 'Please input the title of collection!' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item name="description" label="Description">
+          <Input type="textarea" />
+        </Form.Item>
+        <Form.Item name="modifier" className="collection-create-form_last-form-item">
+          <Radio.Group>
+            <Radio value="public">Public</Radio>
+            <Radio value="private">Private</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    </Modal>
+  );
+};
+export const Form25: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const onCreate = (values: any) => {
+    console.log('Received values of form: ', values);
+    setOpen(false);
+  };
+  return (
+    <div>
+      <Button
+        type="primary"
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        New Collection
+      </Button>
+      <CollectionCreateForm
+        open={open}
+        onCreate={onCreate}
+        onCancel={() => {
+          setOpen(false);
+        }}
+      />
+    </div>
+  );
+};
+
+const config = {
+  rules: [{ type: 'object' as const, required: true, message: 'Please select time!' }],
+};
+const rangeConfig = {
+  rules: [{ type: 'array' as const, required: true, message: 'Please select time!' }],
+};
+const onFinish1 = (fieldsValue: any) => {
+  // Should format date value before submit.
+  const rangeValue = fieldsValue['range-picker'];
+  const rangeTimeValue = fieldsValue['range-time-picker'];
+  const values = {
+    ...fieldsValue,
+    'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
+    'date-time-picker': fieldsValue['date-time-picker'].format('YYYY-MM-DD HH:mm:ss'),
+    'month-picker': fieldsValue['month-picker'].format('YYYY-MM'),
+    'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
+    'range-time-picker': [
+      rangeTimeValue[0].format('YYYY-MM-DD HH:mm:ss'),
+      rangeTimeValue[1].format('YYYY-MM-DD HH:mm:ss'),
+    ],
+    'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
+  };
+  console.log('Received values of form: ', values);
+};
+export const Form26: React.FC = () => (
+  <Form
+    name="time_related_controls"
+    {...formItemLayout}
+    onFinish={onFinish1}
+    style={{ maxWidth: 600 }}
+  >
+    <Form.Item name="date-picker" label="DatePicker" {...config}>
+      <DatePicker />
+    </Form.Item>
+    <Form.Item name="date-time-picker" label="DatePicker[showTime]" {...config}>
+      <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+    </Form.Item>
+    <Form.Item name="month-picker" label="MonthPicker" {...config}>
+      <DatePicker picker="month" />
+    </Form.Item>
+    <Form.Item name="range-picker" label="RangePicker" {...rangeConfig}>
+      <RangePicker />
+    </Form.Item>
+    <Form.Item name="range-time-picker" label="RangePicker[showTime]" {...rangeConfig}>
+      <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+    </Form.Item>
+    <Form.Item name="time-picker" label="TimePicker" {...config}>
+      <TimePicker />
+    </Form.Item>
+    <Form.Item wrapperCol={{ xs: { span: 24, offset: 0 }, sm: { span: 16, offset: 8 } }}>
+      <Button type="primary" htmlType="submit">
+        Submit
+      </Button>
+    </Form.Item>
+  </Form>
+);
+
+type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
+const validatePrimeNumber = (
+  number: number,
+): {
+  validateStatus: ValidateStatus;
+  errorMsg: string | null;
+} => {
+  if (number === 11) {
+    return {
+      validateStatus: 'success',
+      errorMsg: null,
+    };
+  }
+  return {
+    validateStatus: 'error',
+    errorMsg: 'The prime between 8 and 12 is 11!',
+  };
+};
+const formItemLayout2 = {
+  labelCol: { span: 7 },
+  wrapperCol: { span: 12 },
+};
+const tips =
+  'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
+export const Form27: React.FC = () => {
+  const [number, setNumber] = useState<{
+    value: number;
+    validateStatus?: ValidateStatus;
+    errorMsg?: string | null;
+  }>({ value: 11 });
+  const onNumberChange = (value: (number | null)) => {
+    value = value ?? 0;
+    setNumber({
+      ...validatePrimeNumber(value),
+      value,
+    });
+  };
+  return (
+    <Form style={{ maxWidth: 600 }}>
+      <Form.Item
+        {...formItemLayout2}
+        label="Prime between 8 & 12"
+        validateStatus={number.validateStatus}
+        help={number.errorMsg || tips}
+      >
+        <InputNumber min={8} max={12} value={number.value} onChange={onNumberChange} />
+      </Form.Item>
+    </Form>
+  );
+};
+
+export const Form28: React.FC = () => (
+  <Form {...formItemLayout} style={{ maxWidth: 600 }}>
+    <Form.Item
+      label="Fail"
+      validateStatus="error"
+      help="Should be combination of numbers & alphabets"
+    >
+      <Input placeholder="unavailable choice" id="error" />
+    </Form.Item>
+    <Form.Item label="Warning" validateStatus="warning">
+      <Input placeholder="Warning" id="warning" prefix={<SmileOutlined />} />
+    </Form.Item>
+    <Form.Item
+      label="Validating"
+      hasFeedback
+      validateStatus="validating"
+      help="The information is being validated..."
+    >
+      <Input placeholder="I'm the content is being validated" id="validating" />
+    </Form.Item>
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <Input placeholder="I'm the content" id="success" />
+    </Form.Item>
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <Input placeholder="Warning" id="warning2" />
+    </Form.Item>
+    <Form.Item
+      label="Fail"
+      hasFeedback
+      validateStatus="error"
+      help="Should be combination of numbers & alphabets"
+    >
+      <Input placeholder="unavailable choice" id="error2" />
+    </Form.Item>
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <DatePicker style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <TimePicker style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <DatePicker.RangePicker style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <Select placeholder="I'm Select" allowClear>
+        <Option value="1">Option 1</Option>
+        <Option value="2">Option 2</Option>
+        <Option value="3">Option 3</Option>
+      </Select>
+    </Form.Item>
+    <Form.Item
+      label="Validating"
+      hasFeedback
+      validateStatus="error"
+      help="Something breaks the rule."
+    >
+      <Cascader placeholder="I'm Cascader" options={[{ value: 'xx', label: 'xx' }]} allowClear />
+    </Form.Item>
+    <Form.Item label="Warning" hasFeedback validateStatus="warning" help="Need to be checked">
+      <TreeSelect
+        placeholder="I'm TreeSelect"
+        treeData={[{ value: 'xx', label: 'xx' }]}
+        allowClear
+      />
+    </Form.Item>
+    <Form.Item label="inline" style={{ marginBottom: 0 }}>
+      <Form.Item
+        validateStatus="error"
+        help="Please select right date"
+        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
+      >
+        <DatePicker />
+      </Form.Item>
+      <span
+        style={{ display: 'inline-block', width: '24px', lineHeight: '32px', textAlign: 'center' }}
+      >
+        -
+      </span>
+      <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+        <DatePicker />
+      </Form.Item>
+    </Form.Item>
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <InputNumber style={{ width: '100%' }} />
+    </Form.Item>
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <Input allowClear placeholder="with allowClear" />
+    </Form.Item>
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <Input.Password placeholder="with input password" />
+    </Form.Item>
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <Input.Password allowClear placeholder="with input password and allowClear" />
+    </Form.Item>
+    <Form.Item label="Fail" validateStatus="error" hasFeedback>
+      <Mentions />
+    </Form.Item>
+    <Form.Item label="Fail" validateStatus="error" hasFeedback help="Should have something">
+      <Input.TextArea allowClear showCount />
+    </Form.Item>
+  </Form>
+);
+
+const formItemLayout3 = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 8 },
+};
+const formTailLayout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 8, offset: 4 },
+};
+export const Form29: React.FC = () => {
+  const [form] = Form.useForm();
+  const [checkNick, setCheckNick] = useState(false);
+  useEffect(() => {
+    form.validateFields(['nickname']);
+  }, [checkNick, form]);
+  const onCheckboxChange = (e: { target: { checked: boolean } }) => {
+    setCheckNick(e.target.checked);
+  };
+  const onCheck = async () => {
+    try {
+      const values = await form.validateFields();
+      console.log('Success:', values);
+    } catch (errorInfo) {
+      console.log('Failed:', errorInfo);
+    }
+  };
+  return (
+    <Form form={form} name="dynamic_rule" style={{ maxWidth: 600 }}>
+      <Form.Item
+        {...formItemLayout3}
+        name="username"
+        label="Name"
+        rules={[{ required: true, message: 'Please input your name' }]}
+      >
+        <Input placeholder="Please input your name" />
+      </Form.Item>
+      <Form.Item
+        {...formItemLayout3}
+        name="nickname"
+        label="Nickname"
+        rules={[{ required: checkNick, message: 'Please input your nickname' }]}
+      >
+        <Input placeholder="Please input your nickname" />
+      </Form.Item>
+      <Form.Item {...formTailLayout}>
+        <Checkbox checked={checkNick} onChange={onCheckboxChange}>
+          Nickname is required
+        </Checkbox>
+      </Form.Item>
+      <Form.Item {...formTailLayout}>
+        <Button type="primary" onClick={onCheck}>
+          Check
+        </Button>
+      </Form.Item>
+    </Form>
+  );
+};
+
+const formItemLayout4 = {
+  labelCol: { span: 6 },
+  wrapperCol: { span: 14 },
+};
+export const Form30: React.FC = () => (
+  <Form
+    name="validate_other"
+    {...formItemLayout4}
+    onFinish={onFinish}
+    initialValues={{
+      'input-number': 3,
+      'checkbox-group': ['A', 'B'],
+      rate: 3.5,
+      'color-picker': null,
+    }}
+    style={{ maxWidth: 600 }}
+  >
+    <Form.Item label="Plain Text">
+      <span className="ant-form-text">China</span>
+    </Form.Item>
+    <Form.Item
+      name="select"
+      label="Select"
+      hasFeedback
+      rules={[{ required: true, message: 'Please select your country!' }]}
+    >
+      <Select placeholder="Please select a country">
+        <Option value="china">China</Option>
+        <Option value="usa">U.S.A</Option>
+      </Select>
+    </Form.Item>
+    <Form.Item
+      name="select-multiple"
+      label="Select[multiple]"
+      rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
+    >
+      <Select mode="multiple" placeholder="Please select favourite colors">
+        <Option value="red">Red</Option>
+        <Option value="green">Green</Option>
+        <Option value="blue">Blue</Option>
+      </Select>
+    </Form.Item>
+    <Form.Item label="InputNumber">
+      <Form.Item name="input-number" noStyle>
+        <InputNumber min={1} max={10} />
+      </Form.Item>
+      <span className="ant-form-text" style={{ marginLeft: 8 }}>
+        machines
+      </span>
+    </Form.Item>
+    <Form.Item name="switch" label="Switch" valuePropName="checked">
+      <Switch />
+    </Form.Item>
+    <Form.Item name="slider" label="Slider">
+      <Slider
+        marks={{
+          0: 'A',
+          20: 'B',
+          40: 'C',
+          60: 'D',
+          80: 'E',
+          100: 'F',
+        }}
+      />
+    </Form.Item>
+    <Form.Item name="radio-group" label="Radio.Group">
+      <Radio.Group>
+        <Radio value="a">item 1</Radio>
+        <Radio value="b">item 2</Radio>
+        <Radio value="c">item 3</Radio>
+      </Radio.Group>
+    </Form.Item>
+    <Form.Item
+      name="radio-button"
+      label="Radio.Button"
+      rules={[{ required: true, message: 'Please pick an item!' }]}
+    >
+      <Radio.Group>
+        <Radio.Button value="a">item 1</Radio.Button>
+        <Radio.Button value="b">item 2</Radio.Button>
+        <Radio.Button value="c">item 3</Radio.Button>
+      </Radio.Group>
+    </Form.Item>
+    <Form.Item name="checkbox-group" label="Checkbox.Group">
+      <Checkbox.Group>
+        <Row>
+          <Col span={8}>
+            <Checkbox value="A" style={{ lineHeight: '32px' }}>
+              A
+            </Checkbox>
+          </Col>
+          <Col span={8}>
+            <Checkbox value="B" style={{ lineHeight: '32px' }} disabled>
+              B
+            </Checkbox>
+          </Col>
+          <Col span={8}>
+            <Checkbox value="C" style={{ lineHeight: '32px' }}>
+              C
+            </Checkbox>
+          </Col>
+          <Col span={8}>
+            <Checkbox value="D" style={{ lineHeight: '32px' }}>
+              D
+            </Checkbox>
+          </Col>
+          <Col span={8}>
+            <Checkbox value="E" style={{ lineHeight: '32px' }}>
+              E
+            </Checkbox>
+          </Col>
+          <Col span={8}>
+            <Checkbox value="F" style={{ lineHeight: '32px' }}>
+              F
+            </Checkbox>
+          </Col>
+        </Row>
+      </Checkbox.Group>
+    </Form.Item>
+    <Form.Item name="rate" label="Rate">
+      <Rate />
+    </Form.Item>
+    <Form.Item
+      name="upload"
+      label="Upload"
+      valuePropName="fileList"
+      getValueFromEvent={normFile}
+      extra="longgggggggggggggggggggggggggggggggggg"
+    >
+      <Upload name="logo" action="/upload.do" listType="picture">
+        <Button icon={<UploadOutlined />}>Click to upload</Button>
+      </Upload>
+    </Form.Item>
+    <Form.Item label="Dragger">
+      <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+        <Upload.Dragger name="files" action="/upload.do">
+          <p className="ant-upload-drag-icon">
+            <InboxOutlined />
+          </p>
+          <p className="ant-upload-text">Click or drag file to this area to upload</p>
+          <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+        </Upload.Dragger>
+      </Form.Item>
+    </Form.Item>
+    <Form.Item
+      name="color-picker"
+      label="ColorPicker"
+      rules={[{ required: true, message: 'color is required!' }]}
+    >
+      <ColorPicker />
+    </Form.Item>
+    <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+      <Space>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+        <Button htmlType="reset">reset</Button>
+      </Space>
+    </Form.Item>
+  </Form>
+);
+
 export default [
   {
     label: "Form - Basic Usage",
@@ -1661,5 +2289,29 @@ export default [
   {
     label: "Form - Advanced search",
     children: React.createElement(Form24),
+  },
+  {
+    label: "Form - Form in Modal to Create",
+    children: React.createElement(Form25),
+  },
+  {
+    label: "Form - Time-related Controls",
+    children: React.createElement(Form26),
+  },
+  {
+    label: "Form - Handle Form Data Manually",
+    children: React.createElement(Form27),
+  },
+  {
+    label: "Form - Customized Validation",
+    children: React.createElement(Form28),
+  },
+  {
+    label: "Form - Dynamic Rules",
+    children: React.createElement(Form29),
+  },
+  {
+    label: "Form - Other Form Controls",
+    children: React.createElement(Form30),
   },
 ]
