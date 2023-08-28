@@ -18,7 +18,7 @@ const { Title, Paragraph, Text, Link } = Typography;
 
 const blockContent = `AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。`;
-const Typography01: React.FC = () => (
+const Basic: React.FC = () => (
   <Typography>
     <Title>Introduction</Title>
     <Paragraph>
@@ -104,7 +104,7 @@ const Typography01: React.FC = () => (
   </Typography>
 );
 
-const Typography02: React.FC = () => (
+const TitleComponent: React.FC = () => (
   <>
     <Title>h1. Ant Design</Title>
     <Title level={2}>h2. Ant Design</Title>
@@ -114,7 +114,7 @@ const Typography02: React.FC = () => (
   </>
 );
 
-export const Typography03: React.FC = () => (
+export const TextAndLinkComponent: React.FC = () => (
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
@@ -133,7 +133,7 @@ export const Typography03: React.FC = () => (
   </Space>
 );
 
-export const Typography04: React.FC = () => {
+export const Interactive: React.FC = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [editableStrWithSuffix, setEditableStrWithSuffix] = useState(
     'This is a loooooooooooooooooooooooooooooooong editable text with suffix.',
@@ -213,7 +213,7 @@ export const Typography04: React.FC = () => {
   );
 };
 
-export const Typography05: React.FC = () => {
+export const Ellipsis: React.FC = () => {
   const [ellipsis, setEllipsis] = useState(true);
   return (
     <>
@@ -245,14 +245,14 @@ const EllipsisMiddle: React.FC<{ suffixCount: number, children: string }> = ({ s
   const suffix = children.slice(-suffixCount).trim();
   return <Text style={{ maxWidth: '100%' }} ellipsis={{ suffix }}>{start}</Text>
 };
-export const Typography06: React.FC = () => (
+export const EllipsisFromMiddle: React.FC = () => (
   <EllipsisMiddle suffixCount={12}>In the process of internal desktop applications development, many different design specs and
     implementations would be involved, which might cause designers and developers difficulties and
     duplication and reduce the efficiency of development.
   </EllipsisMiddle>
 );
 
-export const Typography07: React.FC = () => {
+export const Suffix: React.FC = () => {
   const [rows, setRows] = useState(1);
   const article =
     "To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life";
@@ -265,37 +265,37 @@ export const Typography07: React.FC = () => {
 };
 
 export {
-  Typography01,
-  Typography02,
+  Basic,
+  TitleComponent,
 }
 
 export default [
   {
     label: "Typography - Basic",
-    children: <Typography01 />
+    children: <Basic />
   },
   {
     label: "Typography - Title Component",
-    children: <Typography02 />
+    children: <TitleComponent />
   },
   {
     label: "Typography - Text and link Component",
-    children: <Typography03 />
+    children: <TextAndLinkComponent />
   },
   {
     label: "Typography - Interactive",
-    children: <Typography04 />
+    children: <Interactive />
   },
   {
     label: "Typography - Ellipsis",
-    children: <Typography05 />
+    children: <Ellipsis />
   },
   {
     label: "Typography - Ellipsis from middle",
-    children: <Typography06 />
+    children: <EllipsisFromMiddle />
   },
   {
     label: "Typography - suffix",
-    children: <Typography07 />
+    children: <Suffix />
   }
 ]

@@ -27,7 +27,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 const onChange: DatePickerProps['onChange'] = (date, dateString) => {
   console.log(date, dateString);
 };
-export const DatePicker01: React.FC = () => (
+export const Basic: React.FC = () => (
   <Space direction="vertical">
     <DatePicker onChange={onChange} />
     <DatePicker onChange={onChange} picker="week" />
@@ -38,7 +38,7 @@ export const DatePicker01: React.FC = () => (
 );
 
 const { RangePicker } = DatePicker;
-export const DatePicker02: React.FC = () => (
+export const RangePicker_: React.FC = () => (
   <Space direction="vertical" size={12}>
     <RangePicker />
     <RangePicker showTime />
@@ -56,7 +56,7 @@ const PickerWithType = ({ type, onChange }: { type: PickerType, onChange: TimePi
   if (type === 'date') return <DatePicker onChange={onChange} />;
   return <DatePicker picker={type} onChange={onChange} />;
 };
-export const DatePicker03: React.FC = () => {
+export const SwitchablePicker: React.FC = () => {
   const [type, setType] = useState<PickerType>('time');
 
   return (
@@ -85,7 +85,7 @@ const customWeekStartEndFormat: DatePickerProps['format'] = (value) =>
   `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
     .endOf('week')
     .format(weekFormat)}`;
-export const DatePicker04: React.FC = () => (
+export const DateFormat: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={dayjs('2015/01/01', dateFormat)} format={dateFormat} />
     <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
@@ -109,7 +109,7 @@ const onChange1 = (
 const onOk = (value: DatePickerProps['value'] | RangePickerProps['value']) => {
   console.log('onOk: ', value);
 };
-export const DatePicker05: React.FC = () => (
+export const ChooseTime: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker showTime onChange={onChange1} onOk={onOk} />
     <RangePicker
@@ -122,7 +122,7 @@ export const DatePicker05: React.FC = () => (
 );
 
 const dateFormat1 = 'YYYY-MM-DD';
-export const DatePicker06: React.FC = () => (
+export const Disabled: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={dayjs('2015-06-06', dateFormat1)} disabled />
     <DatePicker picker="month" defaultValue={dayjs('2015-06', 'YYYY-MM')} disabled />
@@ -168,7 +168,7 @@ const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
     disabledSeconds: () => [55, 56],
   };
 };
-export const DatePicker07: React.FC = () => (
+export const DisabledDateAndTime: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
@@ -191,7 +191,7 @@ export const DatePicker07: React.FC = () => (
 );
 
 type RangeValue = [Dayjs | null, Dayjs | null] | null;
-export const DatePicker08: React.FC = () => {
+export const SelectRangeDatesIn7Days: React.FC = () => {
   const [dates, setDates] = useState<RangeValue>(null);
   const [value, setValue] = useState<RangeValue>(null);
   const disabledDate = (current: Dayjs) => {
@@ -246,7 +246,7 @@ const rangePresets: TimeRangePickerProps['presets'] = [
   { label: 'Last 30 Days', value: [dayjs().add(-30, 'd'), dayjs()] },
   { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
 ];
-export const DatePicker09: React.FC = () => (
+export const PresetRanges: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       presets={[
@@ -272,7 +272,7 @@ export const DatePicker09: React.FC = () => (
   </Space>
 );
 
-export const DatePicker10: React.FC = () => (
+export const ExtraFooter: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
@@ -282,7 +282,7 @@ export const DatePicker10: React.FC = () => (
   </Space>
 );
 
-export const DatePicker11: React.FC = () => {
+export const ThreeSizes: React.FC = () => {
   const [size, setSize] = useState<SizeType>('middle');
   const handleSizeChange = (e: RadioChangeEvent) => {
     setSize(e.target.value);
@@ -302,7 +302,7 @@ export const DatePicker11: React.FC = () => {
   );
 };
 
-export const DatePicker12: React.FC = () => (
+export const CustomizedCellRendering: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       cellRender={(current, info) => {
@@ -337,7 +337,7 @@ export const DatePicker12: React.FC = () => (
   </Space>
 );
 
-export const DatePicker13: React.FC = () => (
+export const Status: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <DatePicker status="error" style={{ width: '100%' }} />
     <DatePicker status="warning" style={{ width: '100%' }} />
@@ -346,7 +346,7 @@ export const DatePicker13: React.FC = () => (
   </Space>
 );
 
-export const DatePicker14: React.FC = () => (
+export const Borderedless: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker bordered={false} />
     <DatePicker picker="week" bordered={false} />
@@ -359,7 +359,7 @@ export const DatePicker14: React.FC = () => (
   </Space>
 );
 
-export const DatePicker15: React.FC = () => {
+export const Placement: React.FC = () => {
   const [placement, SetPlacement] = useState<DatePickerProps['placement']>('topLeft');
   const placementChange = (e: RadioChangeEvent) => {
     SetPlacement(e.target.value);
@@ -385,62 +385,62 @@ export const DatePicker15: React.FC = () => {
 export default [
   {
     label: 'DatePicker - Basic',
-    children: React.createElement(DatePicker01),
+    children: React.createElement(Basic),
   },
   {
     label: 'DatePicker - Range Picker',
-    children: React.createElement(DatePicker02),
+    children: React.createElement(RangePicker_),
   },
   {
     label: 'DatePicker - Switchable picker',
-    children: React.createElement(DatePicker03),
+    children: React.createElement(SwitchablePicker),
   },
   {
     label: 'DatePicker - Date Format',
-    children: React.createElement(DatePicker04),
+    children: React.createElement(DateFormat),
   },
   {
     label: 'DatePicker - Choose Time',
-    children: React.createElement(DatePicker05),
+    children: React.createElement(ChooseTime),
   },
   {
     label: 'DatePicker - Disabled',
-    children: React.createElement(DatePicker06),
+    children: React.createElement(Disabled),
   },
   {
     label: 'DatePicker - Disabled Date & Time',
-    children: React.createElement(DatePicker07),
+    children: React.createElement(DisabledDateAndTime),
   },
   {
     label: 'DatePicker - Select range dates in 7 days',
-    children: React.createElement(DatePicker08),
+    children: React.createElement(SelectRangeDatesIn7Days),
   },
   {
     label: 'DatePicker - Preset Ranges',
-    children: React.createElement(DatePicker09),
+    children: React.createElement(PresetRanges),
   },
   {
     label: 'DatePicker - Extra Footer',
-    children: React.createElement(DatePicker10),
+    children: React.createElement(ExtraFooter),
   },
   {
     label: 'DatePicker - Three Sizes',
-    children: React.createElement(DatePicker11),
+    children: React.createElement(ThreeSizes),
   },
   {
     label: 'DatePicker - Customized Cell Rendering',
-    children: React.createElement(DatePicker12),
+    children: React.createElement(CustomizedCellRendering),
   },
   {
     label: 'DatePicker - Status',
-    children: React.createElement(DatePicker13),
+    children: React.createElement(Status),
   },
   {
     label: 'DatePicker - Bordered-less',
-    children: React.createElement(DatePicker14),
+    children: React.createElement(Borderedless),
   },
   {
     label: 'DatePicker - Placement',
-    children: React.createElement(DatePicker15),
+    children: React.createElement(Placement),
   },
 ]

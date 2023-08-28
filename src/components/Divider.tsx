@@ -3,7 +3,7 @@ import {
   Divider,
 } from "antd";
 
-export const Divider01: React.FC = () => (
+export const Horizontal: React.FC = () => (
   <>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consectetur doloremque vero molestiae modi laboriosam recusandae consequatur totam commodi aperiam. Minus architecto distinctio officiis provident quia aut fugit minima, ad saepe impedit consectetur molestiae eos doloribus dolore temporibus soluta nesciunt facilis? Laboriosam provident distinctio porro perspiciatis modi similique deleniti voluptatem architecto ut minus libero consectetur vero asperiores nam aperiam harum iste deserunt tempora delectus autem, dignissimos alias velit maxime sapiente! Nihil facere hic nostrum consequuntur dolores rerum, impedit eaque deleniti natus, sunt vel sed aperiam quibusdam pariatur! Fugit ducimus quaerat iusto impedit, tempore iste qui, doloribus debitis facere amet laboriosam!</p>
     <Divider />
@@ -13,7 +13,7 @@ export const Divider01: React.FC = () => (
   </>
 );
 
-export const Divider02: React.FC = () => (
+export const DividerWithTitle: React.FC = () => (
   <><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo commodi quia accusantium numquam culpa adipisci dolore, illum nesciunt laboriosam reiciendis?</p>
     <Divider>Text</Divider>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores unde, tempora doloremque in totam aspernatur qui nobis ipsam delectus?</p>
@@ -28,7 +28,7 @@ export const Divider02: React.FC = () => (
   </>
 );
 
-export const Divider03: React.FC = () => (
+export const TextWithoutHeadingStyle: React.FC = () => (
   <><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eius expedita nulla delectus culpa id omnis ut porro. Modi quis quaerat, architecto totam nulla tempora cupiditate doloribus sapiente similique maxime?</p>
     <Divider plain>Text</Divider>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, aliquid eaque debitis assumenda ad nisi possimus magni iusto, aliquam corrupti officia vero cum beatae eos, harum autem at voluptatem accusamus?</p>
@@ -38,7 +38,7 @@ export const Divider03: React.FC = () => (
   </>
 );
 
-export const Divider04: React.FC = () => (
+export const Vertical: React.FC = () => (
   <>
     Text
     <Divider type="vertical" />
@@ -51,18 +51,18 @@ export const Divider04: React.FC = () => (
 export default [
   {
     label: "Divider - Horizontal",
-    children: <Divider01 />
+    children: <Horizontal />
   },
   {
     label: "Divider - Divider with title",
-    children: <Divider02 />
+    children: <DividerWithTitle />
   },
   {
     label: "Divider - Text without heading style",
-    children: <Divider03 />
+    children: <TextWithoutHeadingStyle />
   },
   {
     label: "Divider - Vertical",
-    children: <Divider04 />
+    children: <Vertical />
   },
 ]

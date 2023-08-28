@@ -15,7 +15,7 @@ import {
 } from "@ant-design/icons";
 import type { SizeType } from "antd/es/config-provider/SizeContext";
 
-const Button01: React.FC = () => (
+const Type: React.FC = () => (
   <Space>
     <Button type="primary">Primary Button</Button>
     <Button>Default Button</Button>
@@ -25,7 +25,7 @@ const Button01: React.FC = () => (
   </Space>
 );
 
-const Button02: React.FC = () => (
+const Icon: React.FC = () => (
   <Space direction="vertical">
     <Space wrap>
       <Tooltip title="search">
@@ -52,7 +52,7 @@ const Button02: React.FC = () => (
   </Space>
 );
 
-const Button03: React.FC = () => {
+const Size: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large');
   return (
     <>
@@ -81,7 +81,7 @@ const Button03: React.FC = () => {
   )
 };
 
-const Button04: React.FC = () => (
+const Disabled: React.FC = () => (
   <Space direction="vertical">
     <Space>
       <Button type="primary">Primary</Button>
@@ -126,7 +126,7 @@ const Button04: React.FC = () => (
   </Space>
 );
 
-const Button05: React.FC = () => {
+const Loading: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
   const enterLoading = (index: number) => {
     setLoadings((prevLoadings) => {
@@ -175,7 +175,7 @@ const items = [
     label: '3rd item',
   },
 ];
-const Button06: React.FC = () => (
+const MutipleButtons: React.FC = () => (
   <Space direction="vertical">
     <Button type="primary">primary</Button>
     <Button>Secondary</Button>
@@ -183,7 +183,7 @@ const Button06: React.FC = () => (
   </Space>
 );
 
-const Button07: React.FC = () => (
+const GhostButton: React.FC = () => (
   <Space style={{ backgroundColor: "lightgrey" }} wrap>
     <Button type="primary" ghost>Primary</Button>
     <Button ghost>Default</Button>
@@ -192,7 +192,7 @@ const Button07: React.FC = () => (
   </Space>
 );
 
-const Button08: React.FC = () => (
+const DangerButtons: React.FC = () => (
   <Space wrap>
     <Button type="primary" danger>Primary</Button>
     <Button danger>Default</Button>
@@ -202,7 +202,7 @@ const Button08: React.FC = () => (
   </Space>
 );
 
-const Button09: React.FC = () => (
+const BlockButton: React.FC = () => (
   <Space direction="vertical" style={{ width: "100%" }}>
     <Button type="primary" block>Primary</Button>
     <Button block>Default</Button>
@@ -214,52 +214,52 @@ const Button09: React.FC = () => (
 );
 
 export {
-  Button01,
-  Button02,
-  Button03,
-  Button04,
-  Button05,
-  Button06,
-  Button07,
-  Button08,
-  Button09,
+  Type,
+  Icon,
+  Size,
+  Disabled,
+  Loading,
+  MutipleButtons,
+  GhostButton,
+  DangerButtons,
+  BlockButton,
 }
 
 export default [
   {
     label: "Button - Type",
-    children: <Button01 />
+    children: <Type />
   },
   {
     label: "Button - Icon",
-    children: <Button02 />
+    children: <Icon />
   },
   {
     label: "Button - Size",
-    children: <Button03 />
+    children: <Size />
   },
   {
     label: "Button - Disabled",
-    children: <Button04 />
+    children: <Disabled />
   },
   {
     label: "Button - Loading",
-    children: <Button05 />
+    children: <Loading />
   },
   {
     label: "Button - Mutiple Buttons",
-    children: <Button06 />
+    children: <MutipleButtons />
   },
   {
     label: "Button - Ghost Button",
-    children: <Button07 />
+    children: <GhostButton />
   },
   {
     label: "Button - Danger Buttons",
-    children: <Button08 />
+    children: <DangerButtons />
   },
   {
     label: "Button - Block Button",
-    children: <Button09 />
+    children: <BlockButton />
   }
 ]

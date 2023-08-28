@@ -50,15 +50,15 @@ const options: Option[] = [
 const onChange = (value: (string | number)[]) => {
   console.log(value);
 };
-export const Cascader01: React.FC = () => (
+export const Basic: React.FC = () => (
   <Cascader options={options} onChange={onChange} placeholder="Please select" />
 );
 
-export const Cascader02: React.FC = () => (
+export const DefaultValue: React.FC = () => (
   <Cascader options={options} defaultValue={['zhejiang', 'hangzhou', 'xihu']} onChange={onChange} placeholder="Please select" />
 );
 
-export const Cascader03: React.FC = () => {
+export const CustomTrigger: React.FC = () => {
   const [text, setText] = useState('Unselect');
   const onChange = (_: (string | number)[], selectedOptions: Option[]) => {
     setText(selectedOptions.map((o) => o.label).join(', '));
@@ -75,7 +75,7 @@ export const Cascader03: React.FC = () => {
 };
 
 const displayRender = (labels: string[]) => labels[labels.length - 1];
-export const Cascader04: React.FC = () => (
+export const Hover: React.FC = () => (
   <Cascader
     options={options}
     expandTrigger="hover"
@@ -84,9 +84,9 @@ export const Cascader04: React.FC = () => (
   />
 );
 
-export const Cascader05: React.FC = () => <Cascader options={options} onChange={onChange} />
+export const DisabledOption: React.FC = () => <Cascader options={options} onChange={onChange} />
 
-export const Cascader06: React.FC = () => <Cascader options={options} onChange={onChange} changeOnSelect />;
+export const ChangeOnSelect: React.FC = () => <Cascader options={options} onChange={onChange} changeOnSelect />;
 
 interface Option1 {
   value: string | number;
@@ -131,7 +131,7 @@ const options1: Option1[] = [
 const onChange1 = (value: (string | number)[][]) => {
   console.log(value);
 };
-export const Cascader07: React.FC = () => (
+export const Multiple: React.FC = () => (
   <Cascader
     style={{ width: '100%' }}
     options={options1}
@@ -142,7 +142,7 @@ export const Cascader07: React.FC = () => (
 );
 
 const { SHOW_CHILD } = Cascader;
-export const Cascader08: React.FC = () => {
+export const ShowCheckedStrategy: React.FC = () => {
   const onChange = (value: (string | number)[][]) => {
     console.log(value);
   };
@@ -175,7 +175,7 @@ export const Cascader08: React.FC = () => {
   );
 };
 
-export const Cascader09: React.FC = () => (<>
+export const Size: React.FC = () => (<>
   <Cascader size="large" options={options} onChange={onChange} />
   <br />
   <br />
@@ -250,7 +250,7 @@ const displayRender1 = (labels: (string | number)[], selectedOptions: DefaultOpt
     }
     return <span key={option.value}>{label} / </span>;
   });
-export const Cascader10: React.FC = () => (
+export const CustemRender: React.FC = () => (
   <Cascader
     options={options2}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}
@@ -266,7 +266,7 @@ const filter = (inputValue: string, path: DefaultOptionType[]) =>
   path.some(
     (option) => (option.label as string).toLowerCase().indexOf(inputValue.toLowerCase()) > -1,
   );
-export const Cascader11: React.FC = () => (
+export const Search: React.FC = () => (
   <Cascader
     options={options}
     onChange={onChange2}
@@ -294,7 +294,7 @@ const optionLists: Option3[] = [
     isLeaf: false,
   },
 ];
-export const Cascader12: React.FC = () => {
+export const LoadOptionsLazily: React.FC = () => {
   const [options, setOptions] = useState<Option3[]>(optionLists);
   const onChange = (value: (string | number)[], selectedOptions: Option3[]) => {
     console.log(value, selectedOptions);
@@ -358,7 +358,7 @@ const options3: Option4[] = [
     ],
   },
 ];
-export const Cascader13: React.FC = () => (
+export const CustomFieldName: React.FC = () => (
   <Cascader
     fieldNames={{ label: 'name', value: 'code', children: 'items' }}
     options={options3}
@@ -413,11 +413,11 @@ const dropdownRender = (menus: React.ReactNode) => (
     <div style={{ padding: 8 }}>The footer is not very short.</div>
   </div>
 );
-export const Cascader14: React.FC = () => (
+export const CustomDropdown: React.FC = () => (
   <Cascader options={options4} dropdownRender={dropdownRender} placeholder="Please select" />
 );
 
-export const Cascader15: React.FC = () => {
+export const Placement: React.FC = () => {
   const [placement, SetPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
     'topLeft',
   );
@@ -439,7 +439,7 @@ export const Cascader15: React.FC = () => {
   );
 };
 
-export const Cascader16: React.FC = () => (
+export const Status: React.FC = () => (
   <Space direction="vertical">
     <Cascader status="error" placeholder="Error" />
     <Cascader status="warning" multiple placeholder="Warning multiple" />
@@ -449,66 +449,66 @@ export const Cascader16: React.FC = () => (
 export default [
   {
     label: "Cascader - Basic",
-    children: React.createElement(Cascader01),
+    children: React.createElement(Basic),
   },
   {
     label: "Cascader - Default value",
-    children: React.createElement(Cascader02),
+    children: React.createElement(DefaultValue),
   },
   {
     label: "Cascader - Custom trigger",
-    children: React.createElement(Cascader03),
+    children: React.createElement(CustomTrigger),
   },
   {
     label: "Cascader - Hover",
-    children: React.createElement(Cascader04),
+    children: React.createElement(Hover),
   },
   {
     label: "Cascader - Disabled option",
-    children: React.createElement(Cascader05),
+    children: React.createElement(DisabledOption),
   },
   {
     label: "Cascader - Change on select",
-    children: React.createElement(Cascader06),
+    children: React.createElement(ChangeOnSelect),
   },
   {
     label: "Cascader - Multiple",
-    children: React.createElement(Cascader07),
+    children: React.createElement(Multiple),
   },
   {
     label: "Cascader - ShowCheckedStrategy",
-    children: React.createElement(Cascader08),
+    children: React.createElement(ShowCheckedStrategy),
   },
   {
     label: "Cascader - Size",
-    children: React.createElement(Cascader09),
+    children: React.createElement(Size),
   },
   {
     label: "Cascader - Custem render",
-    children: React.createElement(Cascader10),
+    children: React.createElement(CustemRender),
   },
   {
     label: "Cascader - Search",
-    children: React.createElement(Cascader11),
+    children: React.createElement(Search),
   },
   {
     label: "Cascader - Load Options lazily",
-    children: React.createElement(Cascader12),
+    children: React.createElement(LoadOptionsLazily),
   },
   {
     label: "Cascader - Custom Field Name",
-    children: React.createElement(Cascader13),
+    children: React.createElement(CustomFieldName),
   },
   {
     label: "Cascader - Custom dropdown",
-    children: React.createElement(Cascader14),
+    children: React.createElement(CustomDropdown),
   },
   {
     label: "Cascader - Placement",
-    children: React.createElement(Cascader15),
+    children: React.createElement(Placement),
   },
   {
     label: "Cascader - Status",
-    children: React.createElement(Cascader16),
+    children: React.createElement(Status),
   },
 ]

@@ -38,7 +38,7 @@ import { SpaceSize } from "antd/es/space";
 import React, { useState } from "react";
 import "./Space.css";
 
-export const Space01: React.FC = () => (
+export const BasicUsage: React.FC = () => (
   <Space>
     Space
     <Button type="primary">Button</Button>
@@ -51,7 +51,7 @@ export const Space01: React.FC = () => (
   </Space>
 );
 
-export const Space02: React.FC = () => (
+export const VerticalSpace: React.FC = () => (
   <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
     <Card title="Card" size="small">
       <p>Card content</p>
@@ -68,7 +68,7 @@ export const Space02: React.FC = () => (
   </Space>
 );
 
-export const Space03: React.FC = () => {
+export const SpaceSize_: React.FC = () => {
   const [size, setSize] = useState<SpaceSize | [SpaceSize, SpaceSize]>('small');
   return (<>
     <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
@@ -87,7 +87,7 @@ export const Space03: React.FC = () => {
   </>);
 };
 
-export const Space04: React.FC = () => (
+export const Align: React.FC = () => (
   <div className="space-align-container">
     <div className="space-align-block">
       <Space align="center">
@@ -120,7 +120,7 @@ export const Space04: React.FC = () => (
   </div>
 );
 
-export const Space05: React.FC = () => {
+export const CustomizeSize: React.FC = () => {
   const [size, setSize] = useState(8);
   return (<>
     <Slider value={size} onChange={(value) => setSize(value)}></Slider>
@@ -135,13 +135,13 @@ export const Space05: React.FC = () => {
   </>)
 };
 
-export const Space06: React.FC = () => (
+export const Wrap: React.FC = () => (
   <Space size={[8, 16]} wrap>
     {new Array(20).fill(null).map((_, index) => (<Button key={index}>Button - {index}</Button>))}
   </Space>
 );
 
-export const Space07: React.FC = () => (
+export const Split: React.FC = () => (
   <Space split={<Divider type="vertical" />}>
     <Typography.Link>Link</Typography.Link>
     <Typography.Link>Link</Typography.Link>
@@ -151,7 +151,7 @@ export const Space07: React.FC = () => (
 
 const { Option } = Select;
 const { TreeNode } = TreeSelect;
-export const Space08: React.FC = () => (
+export const CompactModeForFromComponent: React.FC = () => (
   <div className="site-space-compact-wrapper">
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
@@ -345,7 +345,7 @@ export const Space08: React.FC = () => (
   </div>
 );
 
-export const Space09: React.FC = () => (
+export const ButtonCompactMode: React.FC = () => (
   <div>
     <Space.Compact block>
       <Tooltip title="Like">
@@ -441,7 +441,7 @@ export const Space09: React.FC = () => (
   </div>
 );
 
-export const Space10: React.FC = () => (
+export const VerticalCompactMode: React.FC = () => (
   <Space>
     <Space.Compact direction="vertical">
       <Button>Button 1</Button>
@@ -464,42 +464,42 @@ export const Space10: React.FC = () => (
 export default [
   {
     label: "Space - Basic Usage",
-    children: React.createElement(Space01),
+    children: React.createElement(BasicUsage),
   },
   {
     label: "Space - Vertical Space",
-    children: React.createElement(Space02),
+    children: React.createElement(VerticalSpace),
   },
   {
     label: "Space - Space Size",
-    children: React.createElement(Space03),
+    children: React.createElement(SpaceSize_),
   },
   {
     label: "Space - Align",
-    children: React.createElement(Space04),
+    children: React.createElement(Align),
   },
   {
     label: "Space - Customize Size",
-    children: React.createElement(Space05),
+    children: React.createElement(CustomizeSize),
   },
   {
     label: "Space - Wrap",
-    children: React.createElement(Space06),
+    children: React.createElement(Wrap),
   },
   {
     label: "Space - Split",
-    children: React.createElement(Space07),
+    children: React.createElement(Split),
   },
   {
     label: "Space - Compact Mode for form component",
-    children: React.createElement(Space08),
+    children: React.createElement(CompactModeForFromComponent),
   },
   {
     label: "Space - Button Compact Mode",
-    children: React.createElement(Space09),
+    children: React.createElement(ButtonCompactMode),
   },
   {
     label: "Space - Vertical Compact Mode",
-    children: React.createElement(Space10),
+    children: React.createElement(VerticalCompactMode),
   },
 ]

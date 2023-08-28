@@ -8,7 +8,7 @@ import {
 import { CloseSquareFilled, UserOutlined } from "@ant-design/icons";
 
 const mockVal = (str: string, repeat = 1) => ({ value: str.repeat(repeat) });
-export const AutoComplete01: React.FC = () => {
+export const BasicUsage: React.FC = () => {
   const [value, setValue] = useState('');
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const [anotherOptions, setAnotherOptions] = useState<{ value: string }[]>([]);
@@ -37,7 +37,7 @@ export const AutoComplete01: React.FC = () => {
   </>);
 }
 
-export const AutoComplete02: React.FC = () => {
+export const Customized: React.FC = () => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
   const handleSearch = (value: string) => {
     let res: { value: string; label: string }[] = [];
@@ -62,7 +62,7 @@ export const AutoComplete02: React.FC = () => {
 };
 
 const { TextArea } = Input;
-export const AutoComplete03: React.FC = () => {
+export const CustomizeInputComponent: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const handleSearch = (value: string) => {
     setOptions(
@@ -97,7 +97,7 @@ const options = [
   { value: 'Downing Street' },
   { value: 'Wall Street' },
 ];
-export const AutoComplete04: React.FC = () => (
+export const NoneCaseSensitiveAutoComplete: React.FC = () => (
   <AutoComplete
     style={{ width: 200 }}
     options={options}
@@ -151,7 +151,7 @@ const options1 = [
     options: [renderItem('AntDesign design language', 100000)],
   },
 ];
-export const AutoComplete05: React.FC = () => (
+export const LookupPatternsCertainCategory: React.FC = () => (
   <AutoComplete
     popupClassName="certain-category-search-dropdown"
     dropdownMatchSelectWidth={500}
@@ -193,7 +193,7 @@ const searchResult = (query: string) =>
         ),
       };
     });
-export const AutoComplete06: React.FC = () => {
+export const LookupPatternsUncertainCategory: React.FC = () => {
   const [options, setOptions] = useState<SelectProps<object>['options']>([]);
 
   const handleSearch = (value: string) => {
@@ -217,7 +217,7 @@ export const AutoComplete06: React.FC = () => {
   );
 };
 
-export const AutoComplete07: React.FC = () => {
+export const Status: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const [anotherOptions, setAnotherOptions] = useState<{ value: string }[]>([]);
   const getPanelValue = (searchText: string) =>
@@ -240,7 +240,7 @@ export const AutoComplete07: React.FC = () => {
   );
 };
 
-export const AutoComplete08: React.FC = () => {
+export const Borderless: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const getPanelValue = (searchText: string) =>
     !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
@@ -256,7 +256,7 @@ export const AutoComplete08: React.FC = () => {
   );
 };
 
-export const AutoComplete09: React.FC = () => {
+export const CustomizeClearButton: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const getPanelValue = (searchText: string) =>
     !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
@@ -285,38 +285,38 @@ export const AutoComplete09: React.FC = () => {
 export default [
   {
     label: "AutoComplete - Basic Usage",
-    children: React.createElement(AutoComplete01),
+    children: React.createElement(BasicUsage),
   },
   {
     label: "AutoComplete - Customized",
-    children: React.createElement(AutoComplete02),
+    children: React.createElement(Customized),
   },
   {
     label: "AutoComplete - Customize Input Component",
-    children: React.createElement(AutoComplete03),
+    children: React.createElement(CustomizeInputComponent),
   },
   {
     label: "AutoComplete - Non-case-sensitive AutoComplete",
-    children: React.createElement(AutoComplete04),
+    children: React.createElement(NoneCaseSensitiveAutoComplete),
   },
   {
     label: "AutoComplete - Lookup-Patterns - Certain Category",
-    children: React.createElement(AutoComplete05),
+    children: React.createElement(LookupPatternsCertainCategory),
   },
   {
     label: "AutoComplete - Lookup-Patterns - Uncertain Category",
-    children: React.createElement(AutoComplete06),
+    children: React.createElement(LookupPatternsUncertainCategory),
   },
   {
     label: "AutoComplete - Status",
-    children: React.createElement(AutoComplete07),
+    children: React.createElement(Status),
   },
   {
     label: "AutoComplete - Borderless",
-    children: React.createElement(AutoComplete08),
+    children: React.createElement(Borderless),
   },
   {
     label: "AutoComplete - Customize clear button",
-    children: React.createElement(AutoComplete09),
+    children: React.createElement(CustomizeClearButton),
   },
 ]

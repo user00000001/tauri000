@@ -58,7 +58,7 @@ type FieldType = {
   password?: string,
   remember?: string,
 }
-export const Form01: React.FC = () => (
+export const BasicUsage: React.FC = () => (
   <Form
     name="basic"
     labelCol={{ span: 8 }}
@@ -166,7 +166,7 @@ export const Form02: React.FC = () => {
   );
 };
 
-export const Form03: React.FC = () => {
+export const FormMethodsClassComponent: React.FC = () => {
   const formRef = React.useRef<FormInstance>(null);
   const onGenderChange = (value: string) => {
     switch (value) {
@@ -242,7 +242,7 @@ export const Form03: React.FC = () => {
 };
 
 type LayoutType = Parameters<typeof Form>[0]['layout'];
-export const Form04 = () => {
+export const FormLayout = () => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState<LayoutType>('horizontal');
   const onFormLayoutChange = ({ layout }: { layout: LayoutType }) => {
@@ -289,7 +289,7 @@ const normFile = (e: any) => {
   }
   return e?.fileList;
 };
-export const Form05: React.FC = () => {
+export const FormDisable: React.FC = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
   return (
     <>
@@ -381,7 +381,7 @@ export const Form05: React.FC = () => {
 };
 
 type RequiredMark = boolean | 'optional';
-export const Form06: React.FC = () => {
+export const RequiredStyle: React.FC = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
   const onRequiredTypeChange = ({ requiredMarkValue }: { requiredMarkValue: RequiredMark }) => {
@@ -419,7 +419,7 @@ export const Form06: React.FC = () => {
 };
 
 type SizeType = Parameters<typeof Form>[0]['size'];
-export const Form07: React.FC = () => {
+export const FromSize: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType | 'default'>('default');
   const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
@@ -483,7 +483,7 @@ export const Form07: React.FC = () => {
   );
 };
 
-export const Form08: React.FC = () => (
+export const LabelCanWrap: React.FC = () => (
   <Form
     name="wrap"
     labelCol={{ flex: '110px' }}
@@ -507,7 +507,7 @@ export const Form08: React.FC = () => (
   </Form>
 );
 
-export const Form09: React.FC = () => {
+export const NoBlockRule: React.FC = () => {
   const [form] = Form.useForm();
   const onFinish = () => {
     message.success('Submit success!');
@@ -549,7 +549,7 @@ export const Form09: React.FC = () => {
   );
 };
 
-export const Form10: React.FC = () => {
+export const WatchHooks: React.FC = () => {
   const [form] = Form.useForm<{ name: string; age: number }>();
   const nameValue = Form.useWatch('name', form);
   return (
@@ -589,7 +589,7 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
     </Button>
   );
 };
-export const Form11: React.FC = () => {
+export const ValidateOnly: React.FC = () => {
   const [form] = Form.useForm();
   return (
     <Form form={form} name="validateOnly" layout="vertical" autoComplete="off">
@@ -627,7 +627,7 @@ const MyFormItem = ({ name, ...props }: FormItemProps) => {
   const concatName = name !== undefined ? [...prefixPath, ...toArr(name)] : undefined;
   return <Form.Item name={concatName} {...props} />;
 };
-export const Form12: React.FC = () => {
+export const PathPrefix: React.FC = () => {
   const onFinish = (value: object) => {
     console.log(value);
   };
@@ -669,7 +669,7 @@ const formItemLayoutWithOutLabel = {
     sm: { span: 20, offset: 4 },
   },
 };
-export const Form13: React.FC = () => {
+export const DynamicFromItem: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
@@ -756,7 +756,7 @@ export const Form13: React.FC = () => {
   );
 };
 
-export const Form14: React.FC = () => (
+export const DynamicFromNestItems: React.FC = () => (
   <Form
     name="dynamic_form_nest_item"
     onFinish={onFinish}
@@ -810,7 +810,7 @@ const sights = {
   Shanghai: ['Oriental Pearl', 'The Bund'],
 };
 type SightsKeys = keyof typeof sights;
-export const Form15: React.FC = () => {
+export const ComplexDynamicFormItem: React.FC = () => {
   const [form] = Form.useForm();
   const onFinish = (values: any) => {
     console.log('Received values of form:', values);
@@ -895,7 +895,7 @@ const validateMessages = {
     range: '${label} must be between ${min} and ${max}',
   },
 };
-export const Form16: React.FC = () => (
+export const Nest: React.FC = () => (
   <Form
     {...layout}
     name="nest-messages"
@@ -926,7 +926,7 @@ export const Form16: React.FC = () => (
   </Form>
 );
 
-export const Form17: React.FC = () => (
+export const ComplexFormControl: React.FC = () => (
   <Form
     name="complex-form"
     onFinish={onFinish}
@@ -1043,7 +1043,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
     </span>
   );
 };
-export const Form18: React.FC = () => {
+export const CustomizedFormControls: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values from form: ', values);
   };
@@ -1107,7 +1107,7 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
     </Form.Item>
   </Form>
 );
-export const Form19: React.FC = () => {
+export const StoreFormDataIntoUpperComponent: React.FC = () => {
   const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);
   return (
     <>
@@ -1167,7 +1167,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ open, onCancel }) => {
     </Modal>
   );
 };
-export const Form20: React.FC = () => {
+export const ControlBetweenForms: React.FC = () => {
   const [open, setOpen] = useState(false);
   const showUserModal = () => {
     setOpen(true);
@@ -1229,7 +1229,7 @@ export const Form20: React.FC = () => {
   );
 };
 
-export const Form21: React.FC = () => {
+export const InlineLoginForm: React.FC = () => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
   // To disable submit button at the beginning.
@@ -1275,7 +1275,7 @@ export const Form21: React.FC = () => {
   );
 };
 
-export const Form22: React.FC = () => {
+export const LoginForm: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -1381,7 +1381,7 @@ const tailFormItemLayout = {
     },
   },
 };
-export const Form23: React.FC = () => {
+export const Registration: React.FC = () => {
   const [form] = Form.useForm();
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
@@ -1658,7 +1658,7 @@ const AdvancedSearchForm = () => {
     </Form>
   );
 };
-export const Form24: React.FC = () => {
+export const AdvancedSearch: React.FC = () => {
   const { token } = theme.useToken();
   const listStyle: React.CSSProperties = {
     lineHeight: '200px',
@@ -1736,7 +1736,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     </Modal>
   );
 };
-export const Form25: React.FC = () => {
+export const FormInModalToCreate: React.FC = () => {
   const [open, setOpen] = useState(false);
   const onCreate = (values: any) => {
     console.log('Received values of form: ', values);
@@ -1787,7 +1787,7 @@ const onFinish1 = (fieldsValue: any) => {
   };
   console.log('Received values of form: ', values);
 };
-export const Form26: React.FC = () => (
+export const TimeRelatedControls: React.FC = () => (
   <Form
     name="time_related_controls"
     {...formItemLayout}
@@ -1844,7 +1844,7 @@ const formItemLayout2 = {
 };
 const tips =
   'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
-export const Form27: React.FC = () => {
+export const HandleFormDataManually: React.FC = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;
@@ -1871,7 +1871,7 @@ export const Form27: React.FC = () => {
   );
 };
 
-export const Form28: React.FC = () => (
+export const CustomizedValidation: React.FC = () => (
   <Form {...formItemLayout} style={{ maxWidth: 600 }}>
     <Form.Item
       label="Fail"
@@ -1982,7 +1982,7 @@ const formTailLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8, offset: 4 },
 };
-export const Form29: React.FC = () => {
+export const DynamicRules: React.FC = () => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = useState(false);
   useEffect(() => {
@@ -2035,7 +2035,7 @@ const formItemLayout4 = {
   labelCol: { span: 6 },
   wrapperCol: { span: 14 },
 };
-export const Form30: React.FC = () => (
+export const OtherFormControls: React.FC = () => (
   <Form
     name="validate_other"
     {...formItemLayout4}
@@ -2196,7 +2196,7 @@ export const Form30: React.FC = () => (
 export default [
   {
     label: "Form - Basic Usage",
-    children: React.createElement(Form01),
+    children: React.createElement(BasicUsage),
   },
   {
     label: "Form - Form methods",
@@ -2204,114 +2204,114 @@ export default [
   },
   {
     label: "Form - Form methods(Class component)",
-    children: React.createElement(Form03),
+    children: React.createElement(FormMethodsClassComponent),
   },
   {
     label: "Form - Form Layout",
-    children: React.createElement(Form04),
+    children: React.createElement(FormLayout),
   },
   {
     label: "Form - Form disable",
-    children: React.createElement(Form05),
+    children: React.createElement(FormDisable),
   },
   {
     label: "Form - Required style",
-    children: React.createElement(Form06),
+    children: React.createElement(RequiredStyle),
   },
   {
     label: "Form - Form size",
-    children: React.createElement(Form07),
+    children: React.createElement(FromSize),
   },
   {
     label: "Form - label can wrap",
-    children: React.createElement(Form08),
+    children: React.createElement(LabelCanWrap),
   },
   {
     label: "Form - No block rule",
-    children: React.createElement(Form09),
+    children: React.createElement(NoBlockRule),
   },
   {
     label: "Form - Watch Hooks",
-    children: React.createElement(Form10),
+    children: React.createElement(WatchHooks),
   },
   {
     label: "Form - Validate Only",
-    children: React.createElement(Form11),
+    children: React.createElement(ValidateOnly),
   },
   {
     label: "Form - Path Prefix",
-    children: React.createElement(Form12),
+    children: React.createElement(PathPrefix),
   },
   {
     label: "Form - Dynamic Form Item",
-    children: React.createElement(Form13),
+    children: React.createElement(DynamicFromItem),
   },
   {
     label: "Form - Dynamic Form nest Items",
-    children: React.createElement(Form14),
+    children: React.createElement(DynamicFromNestItems),
   },
   {
     label: "Form - Complex Dynamic Form Item",
-    children: React.createElement(Form15),
+    children: React.createElement(ComplexDynamicFormItem),
   },
   {
     label: "Form - Nest",
-    children: React.createElement(Form16),
+    children: React.createElement(Nest),
   },
   {
     label: "Form - complex form control",
-    children: React.createElement(Form17),
+    children: React.createElement(ComplexFormControl),
   },
   {
     label: "Form - Customized Form Controls",
-    children: React.createElement(Form18),
+    children: React.createElement(CustomizedFormControls),
   },
   {
     label: "Form - Store Form Data into Upper Component",
-    children: React.createElement(Form19),
+    children: React.createElement(StoreFormDataIntoUpperComponent),
   },
   {
     label: "Form - Control between forms",
-    children: React.createElement(Form20),
+    children: React.createElement(ControlBetweenForms),
   },
   {
     label: "Form - Inline Login Form",
-    children: React.createElement(Form21),
+    children: React.createElement(InlineLoginForm),
   },
   {
     label: "Form - Login Form",
-    children: React.createElement(Form22),
+    children: React.createElement(LoginForm),
   },
   {
     label: "Form - Registration",
-    children: React.createElement(Form23),
+    children: React.createElement(Registration),
   },
   {
     label: "Form - Advanced search",
-    children: React.createElement(Form24),
+    children: React.createElement(AdvancedSearch),
   },
   {
     label: "Form - Form in Modal to Create",
-    children: React.createElement(Form25),
+    children: React.createElement(FormInModalToCreate),
   },
   {
     label: "Form - Time-related Controls",
-    children: React.createElement(Form26),
+    children: React.createElement(TimeRelatedControls),
   },
   {
     label: "Form - Handle Form Data Manually",
-    children: React.createElement(Form27),
+    children: React.createElement(HandleFormDataManually),
   },
   {
     label: "Form - Customized Validation",
-    children: React.createElement(Form28),
+    children: React.createElement(CustomizedValidation),
   },
   {
     label: "Form - Dynamic Rules",
-    children: React.createElement(Form29),
+    children: React.createElement(DynamicRules),
   },
   {
     label: "Form - Other Form Controls",
-    children: React.createElement(Form30),
+    children: React.createElement(OtherFormControls),
   },
 ]

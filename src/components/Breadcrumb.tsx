@@ -13,7 +13,7 @@ import {
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import "./Breadcrumb.css";
 
-export const Breadcrumb01: React.FC = () => (
+export const BasicUsage: React.FC = () => (
   <Breadcrumb
     items={[
       {
@@ -32,7 +32,7 @@ export const Breadcrumb01: React.FC = () => (
   />
 );
 
-export const Breadcrumb02: React.FC = () => (
+export const WithAnIcon: React.FC = () => (
   <Breadcrumb
     items={[
       {
@@ -106,13 +106,13 @@ const Home = () => {
     </div>
   );
 };
-export const Breadcrumb03: React.FC = () => (
+export const ReactRouterV6: React.FC = () => (
   <HashRouter>
     <Home />
   </HashRouter>
 );
 
-export const Breadcrumb04: React.FC = () => (
+export const ConfiguringTheSeparator: React.FC = () => (
   <Breadcrumb
     separator=">"
     items={[
@@ -160,7 +160,7 @@ const menuItems = [
     ),
   },
 ];
-export const Breadcrumb05: React.FC = () => (
+export const BreadCrumbsWithDropDownMenu: React.FC = () => (
   <Breadcrumb
     items={[
       {
@@ -180,7 +180,7 @@ export const Breadcrumb05: React.FC = () => (
   />
 );
 
-export const Breadcrumb06: React.FC = () => (
+export const ConfiguringTheSeparatorIndependently: React.FC = () => (
   <Breadcrumb
     separator=""
     items={[
@@ -212,7 +212,7 @@ export const Breadcrumb06: React.FC = () => (
   />
 );
 
-export const Breadcrumb07: React.FC = () => (
+export const DebugRoutes: React.FC = () => (
   <Breadcrumb
     routes={[
       {
@@ -240,30 +240,30 @@ export const Breadcrumb07: React.FC = () => (
 export default [
   {
     label: "Breadcrumb - Basic Usage",
-    children: React.createElement(Breadcrumb01),
+    children: React.createElement(BasicUsage),
   },
   {
     label: "Breadcrumb - With an Icon",
-    children: React.createElement(Breadcrumb02),
+    children: React.createElement(WithAnIcon),
   },
   {
     label: "Breadcrumb - react-router V6",
-    children: React.createElement(Breadcrumb03),
+    children: React.createElement(ReactRouterV6),
   },
   {
     label: "Breadcrumb - Configuring the Separator",
-    children: React.createElement(Breadcrumb04),
+    children: React.createElement(ConfiguringTheSeparator),
   },
   {
     label: "Breadcrumb - Bread crumbs with drop down menu",
-    children: React.createElement(Breadcrumb05),
+    children: React.createElement(BreadCrumbsWithDropDownMenu),
   },
   {
     label: "Breadcrumb - Configuring the Separator Independently",
-    children: React.createElement(Breadcrumb06),
+    children: React.createElement(ConfiguringTheSeparatorIndependently),
   },
   {
     label: "Breadcrumb - Debug Routes",
-    children: React.createElement(Breadcrumb07),
+    children: React.createElement(DebugRoutes),
   },
 ]

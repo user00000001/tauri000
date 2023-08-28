@@ -55,7 +55,7 @@ const footerStyle: React.CSSProperties = {
   color: '#fff',
   backgroundColor: '#7dbcea',
 };
-export const Layout01: React.FC = () => (
+export const BasicStructure: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
     <Layout>
       <Header style={headerStyle}>Header</Header>
@@ -89,7 +89,7 @@ export const Layout01: React.FC = () => (
   </Space>
 );
 
-export const Layout02: React.FC = () => {
+export const HeaderContentFooter: React.FC = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -139,7 +139,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-export const Layout03: React.FC = () => {
+export const HeaderSider: React.FC = () => {
   const {
     token: { colorBgContainer }
   } = theme.useToken();
@@ -167,7 +167,7 @@ export const Layout03: React.FC = () => {
   );
 };
 
-export const Layout04: React.FC = () => {
+export const HeaderSider2: React.FC = () => {
   const {
     token: { colorBgContainer }
   } = theme.useToken();
@@ -212,7 +212,7 @@ const items: MenuItem[] = [
   ]),
   getItem('Files', '9', <FileOutlined />)
 ];
-export const Layout05: React.FC = () => {
+export const Sider_: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -240,7 +240,7 @@ export const Layout05: React.FC = () => {
   );
 };
 
-export const Layout06: React.FC = () => {
+export const CustomTrigger: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -279,7 +279,7 @@ export const Layout06: React.FC = () => {
   );
 };
 
-export const Layout07: React.FC = () => {
+export const Responsive: React.FC = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -310,7 +310,7 @@ export const Layout07: React.FC = () => {
   );
 };
 
-export const Layout08: React.FC = () => {
+export const FixedHeader: React.FC = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -347,7 +347,7 @@ const items3: MenuProps['items'] = [
   icon: React.createElement(icon),
   label: `nav ${index + 1}`,
 }));
-export const Layout09: React.FC = () => {
+export const FixedSider: React.FC = () => {
   const {
     token: { colorBgContainer }
   } = theme.useToken();
@@ -385,38 +385,38 @@ export const Layout09: React.FC = () => {
 export default [
   {
     label: "Layout - Basic Structure",
-    children: <Layout01 />
+    children: <BasicStructure />
   },
   {
     label: "Layout - Header-Content-Footer",
-    children: <Layout02 />
+    children: <HeaderContentFooter />
   },
   {
     label: "Layout - Header-Sider",
-    children: <Layout03 />
+    children: <HeaderSider />
   },
   {
     label: "Layout - Header-Sider 2",
-    children: <Layout04 />
+    children: <HeaderSider2 />
   },
   {
     label: "Layout - Sider",
-    children: <Layout05 />
+    children: <Sider_ />
   },
   {
     label: "Layout - Custom trigger",
-    children: <Layout06 />
+    children: <CustomTrigger />
   },
   {
     label: "Layout - Responsive",
-    children: <Layout07 />
+    children: <Responsive />
   },
   {
     label: "Layout - Fixed Header",
-    children: <Layout08 />
+    children: <FixedHeader />
   },
   {
     label: "Layout - Fixed Sider",
-    children: <Layout09 />
+    children: <FixedSider />
   },
 ]

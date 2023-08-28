@@ -4,14 +4,14 @@ import {
 } from "antd";
 import React, { useState } from "react";
 
-export const Pagination01: React.FC = () => <Pagination defaultCurrent={1} total={50} />;
+export const Basic: React.FC = () => <Pagination defaultCurrent={1} total={50} />;
 
-export const Pagination02: React.FC = () => <Pagination defaultCurrent={6} total={500} />;
+export const More: React.FC = () => <Pagination defaultCurrent={6} total={500} />;
 
 const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
   console.log(current, pageSize);
 };
-export const Pagination03: React.FC = () => (<>
+export const Changer: React.FC = () => (<>
   <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500}></Pagination>
   <br />
   <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500} disabled></Pagination>
@@ -20,14 +20,14 @@ export const Pagination03: React.FC = () => (<>
 const onChange: PaginationProps['onChange'] = (pageNumber) => {
   console.log('Page: ', pageNumber);
 };
-export const Pagination04: React.FC = () => (<>
+export const Jumper: React.FC = () => (<>
   <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange}></Pagination>
   <br />
   <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} disabled></Pagination>
 </>);
 
 const showTotal: PaginationProps['showTotal'] = (total) => `Total ${total} items`;
-export const Pagination05: React.FC = () => (<>
+export const MiniSize: React.FC = () => (<>
   <Pagination size="small" total={50}></Pagination>
   <Pagination size="small" total={50} showSizeChanger showQuickJumper></Pagination>
   <Pagination size="small" total={50} showTotal={showTotal}></Pagination>
@@ -41,13 +41,13 @@ export const Pagination05: React.FC = () => (<>
   ></Pagination>
 </>);
 
-export const Pagination06: React.FC = () => (<>
+export const SimpleMode: React.FC = () => (<>
   <Pagination simple defaultCurrent={2} total={50}></Pagination>
   <br />
   <Pagination simple defaultCurrent={2} total={50} disabled></Pagination>
 </>);
 
-export const Pagination07: React.FC = () => {
+export const Controlled: React.FC = () => {
   const [current, setCurrent] = useState(3);
   const onChange: PaginationProps['onChange'] = (page) => {
     console.log(page);
@@ -56,7 +56,7 @@ export const Pagination07: React.FC = () => {
   return <Pagination current={current} onChange={onChange} total={50} />;
 };
 
-export const Pagination08: React.FC = () => (
+export const TotalNumber: React.FC = () => (
   <>
     <Pagination
       total={85}
@@ -74,7 +74,7 @@ export const Pagination08: React.FC = () => (
   </>
 );
 
-export const Pagination09: React.FC = () => (
+export const ShowAll: React.FC = () => (
   <Pagination
     total={85}
     showSizeChanger
@@ -92,47 +92,47 @@ const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => 
   }
   return originalElement;
 };
-export const Pagination10: React.FC = () => <Pagination total={500} itemRender={itemRender} />;
+export const PrevAndNext: React.FC = () => <Pagination total={500} itemRender={itemRender} />;
 
 export default [
   {
     label: "Pagination - Basic",
-    children: React.createElement(Pagination01),
+    children: React.createElement(Basic),
   },
   {
     label: "Pagination - More",
-    children: React.createElement(Pagination02),
+    children: React.createElement(More),
   },
   {
     label: "Pagination - Changer",
-    children: React.createElement(Pagination03),
+    children: React.createElement(Changer),
   },
   {
     label: "Pagination - Jumper",
-    children: React.createElement(Pagination04),
+    children: React.createElement(Jumper),
   },
   {
     label: "Pagination - Mini size",
-    children: React.createElement(Pagination05),
+    children: React.createElement(MiniSize),
   },
   {
     label: "Pagination - Simple mode",
-    children: React.createElement(Pagination06),
+    children: React.createElement(SimpleMode),
   },
   {
     label: "Pagination - Controlled",
-    children: React.createElement(Pagination07),
+    children: React.createElement(Controlled),
   },
   {
     label: "Pagination - Total number",
-    children: React.createElement(Pagination08),
+    children: React.createElement(TotalNumber),
   },
   {
     label: "Pagination - Show All",
-    children: React.createElement(Pagination09),
+    children: React.createElement(ShowAll),
   },
   {
     label: "Pagination - Prev and next",
-    children: React.createElement(Pagination10),
+    children: React.createElement(PrevAndNext),
   },
 ]

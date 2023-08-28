@@ -16,9 +16,9 @@ import {
 const onChange = (e: CheckboxChangeEvent) => {
   console.log(`checked = ${e.target.checked}`);
 };
-export const Checkbox01: React.FC = () => <Checkbox onChange={onChange}>Checkbox</Checkbox>
+export const Basic: React.FC = () => <Checkbox onChange={onChange}>Checkbox</Checkbox>
 
-export const Checkbox02: React.FC = () => (
+export const Disabled: React.FC = () => (
   <>
     <Checkbox defaultChecked={false} disabled />
     <br />
@@ -28,7 +28,7 @@ export const Checkbox02: React.FC = () => (
   </>
 );
 
-export const Checkbox03: React.FC = () => {
+export const ControlledCheckbox: React.FC = () => {
   const [checked, setChecked] = useState(true);
   const [disabled, setDisabled] = useState(false);
   const toggleChecked = () => {
@@ -75,7 +75,7 @@ const optionsWithDisabled = [
   { label: 'Pear', value: 'Pear' },
   { label: 'Orange', value: 'Orange', disabled: false },
 ];
-export const Checkbox04: React.FC = () => (
+export const CheckboxGroup_: React.FC = () => (
   <>
     <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange1} />
     <br />
@@ -94,7 +94,7 @@ export const Checkbox04: React.FC = () => (
 
 const CheckboxGroup = Checkbox.Group;
 const defaultCheckedList = ['Apple', 'Orange'];
-export const Checkbox05: React.FC = () => {
+export const CheckAll: React.FC = () => {
   const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
   const checkAll = plainOptions.length === checkedList.length;
   const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
@@ -115,7 +115,7 @@ export const Checkbox05: React.FC = () => {
   );
 };
 
-export const Checkbox06: React.FC = () => (
+export const UseWithGrid: React.FC = () => (
   <Checkbox.Group style={{ width: '100%' }} onChange={onChange1}>
     <Row>
       <Col span={8}>
@@ -140,26 +140,26 @@ export const Checkbox06: React.FC = () => (
 export default [
   {
     label: "Checkbox - Basic",
-    children: React.createElement(Checkbox01),
+    children: React.createElement(Basic),
   },
   {
     label: "Checkbox - Disabled",
-    children: React.createElement(Checkbox02),
+    children: React.createElement(Disabled),
   },
   {
     label: "Checkbox - Controlled Checkbox",
-    children: React.createElement(Checkbox03),
+    children: React.createElement(ControlledCheckbox),
   },
   {
     label: "Checkbox - Checkbox Group",
-    children: React.createElement(Checkbox04),
+    children: React.createElement(CheckboxGroup_),
   },
   {
     label: "Checkbox - Check all",
-    children: React.createElement(Checkbox05),
+    children: React.createElement(CheckAll),
   },
   {
     label: "Checkbox - Use with Grid",
-    children: React.createElement(Checkbox06),
+    children: React.createElement(UseWithGrid),
   },
 ]

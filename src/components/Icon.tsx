@@ -15,7 +15,7 @@ import Icon, {
 } from "@ant-design/icons";
 import type { CustomIconComponentProps } from "@ant-design/icons/lib/components/Icon";
 
-const Icon01: React.FC = () => (
+const Basic: React.FC = () => (
   <Space>
     <HomeOutlined />
     <SettingFilled />
@@ -26,7 +26,7 @@ const Icon01: React.FC = () => (
   </Space>
 );
 
-const Icon02: React.FC = () => (
+const TwoToneIconAndColorfulIcon: React.FC = () => (
   <Space>
     <SmileTwoTone />
     <HeartTwoTone twoToneColor="#eb2f96" />
@@ -81,7 +81,7 @@ const HeartIcon = (props: Partial<CustomIconComponentProps>) => (
 const PandaIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={PandaSvg} {...props} />
 );
-const Icon03: React.FC = () => (
+const CustomIcon: React.FC = () => (
   <Space>
     <HeartIcon style={{ color: 'hotpink' }} />
     <PandaIcon style={{ fontSize: '32px' }} />
@@ -93,7 +93,7 @@ const Icon03: React.FC = () => (
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
 });
-const Icon04: React.FC = () => (
+const UseIconfontCN: React.FC = () => (
   <Space>
     <IconFont type="icon-tuichu" />
     <IconFont type="icon-facebook" />
@@ -107,7 +107,7 @@ const IconFont1 = createFromIconfontCN({
     "//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js",
   ],
 })
-const Icon05: React.FC = () => (
+const MultipleResourcesFromIconfontCN: React.FC = () => (
   <Space>
     <IconFont1 type="icon-javascript" />
     <IconFont1 type="icon-java" />
@@ -117,32 +117,32 @@ const Icon05: React.FC = () => (
 );
 
 export {
-  Icon01,
-  Icon02,
-  Icon03,
-  Icon04,
-  Icon05
+  Basic,
+  TwoToneIconAndColorfulIcon,
+  CustomIcon,
+  UseIconfontCN,
+  MultipleResourcesFromIconfontCN
 }
 
 export default [
   {
     label: "Icon - Basic",
-    children: <Icon01 />
+    children: <Basic />
   },
   {
     label: "Icon - Two-tone icon and colorful icon",
-    children: <Icon02 />
+    children: <TwoToneIconAndColorfulIcon />
   },
   {
     label: "Icon - Custom Icon",
-    children: <Icon03 />
+    children: <CustomIcon />
   },
   {
     label: "Icon - Use iconfont.cn",
-    children: <Icon04 />
+    children: <UseIconfontCN />
   },
   {
     label: "Icon - Multiple resources from iconfont.cn",
-    children: <Icon05 />
+    children: <MultipleResourcesFromIconfontCN />
   }
 ]

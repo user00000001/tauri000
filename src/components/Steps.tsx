@@ -19,7 +19,7 @@ import React, { useState } from "react";
 
 
 const description = "This is a description.";
-export const Steps01: React.FC = () => (
+export const Basic: React.FC = () => (
   <Steps
     current={1}
     items={[
@@ -40,7 +40,7 @@ export const Steps01: React.FC = () => (
   />
 );
 
-export const Steps02: React.FC = () => (
+export const MiniVersion: React.FC = () => (
   <Steps size="small" current={1} items={[
     {
       title: "Finished",
@@ -54,7 +54,7 @@ export const Steps02: React.FC = () => (
   ]} />
 );
 
-export const Steps03: React.FC = () => (
+export const WithIcon: React.FC = () => (
   <Steps
     items={[
       {
@@ -95,7 +95,7 @@ const steps = [
     content: 'Last-content',
   },
 ];
-export const Steps04: React.FC = () => {
+export const SwitchStep: React.FC = () => {
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
   const next = () => setCurrent(current + 1);
@@ -127,7 +127,7 @@ export const Steps04: React.FC = () => {
   </>);
 };
 
-export const Steps05: React.FC = () => (
+export const Vertical: React.FC = () => (
   <Steps
     direction="vertical"
     current={1}
@@ -148,7 +148,7 @@ export const Steps05: React.FC = () => (
   />
 );
 
-export const Steps06: React.FC = () => (
+export const VerticalMiniVersion: React.FC = () => (
   <Steps
     direction="vertical"
     size="small"
@@ -170,7 +170,7 @@ export const Steps06: React.FC = () => (
   />
 );
 
-export const Steps07: React.FC = () => (
+export const ErrorStatus: React.FC = () => (
   <Steps
     current={1}
     status="error"
@@ -191,7 +191,7 @@ export const Steps07: React.FC = () => (
   />
 );
 
-export const Steps08: React.FC = () => (
+export const DotStyle: React.FC = () => (
   <>
     <Steps
       progressDot
@@ -249,7 +249,7 @@ const customDot: StepsProps['progressDot'] = (dot, { status, index }) => (
     }
   >{dot}</Popover>
 );
-export const Steps09: React.FC = () => (
+export const CustomizedDotStyle: React.FC = () => (
   <Steps
     current={1}
     progressDot={customDot}
@@ -274,7 +274,7 @@ export const Steps09: React.FC = () => (
   />
 );
 
-export const Steps10: React.FC = () => {
+export const Clickable: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const onChange = (value: number) => {
     console.log('onChange:', value);
@@ -325,7 +325,7 @@ export const Steps10: React.FC = () => {
   );
 };
 
-export const Steps11: React.FC = () => {
+export const NavigationSteps: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const onChange = (value: number) => {
     console.log('onChange:', value);
@@ -414,7 +414,7 @@ export const Steps11: React.FC = () => {
   );
 };
 
-export const Steps12: React.FC = () => (
+export const StepsWithProcess: React.FC = () => (
   <Steps
     current={1}
     percent={60}
@@ -450,7 +450,7 @@ const items = [
     description,
   },
 ];
-export const Steps13: React.FC = () => (
+export const LabelPlacement: React.FC = () => (
   <>
     <Steps current={1} labelPlacement="vertical" items={items} />
     <br />
@@ -493,7 +493,7 @@ const items1 = [
     description: 'This is a Step 3.',
   },
 ];
-export const Steps14: React.FC = () => (
+export const InlineSteps: React.FC = () => (
   <div>
     <List
       itemLayout="horizontal"
@@ -523,58 +523,58 @@ export const Steps14: React.FC = () => (
 export default [
   {
     label: 'Steps - Basic',
-    children: React.createElement(Steps01),
+    children: React.createElement(Basic),
   },
   {
     label: 'Steps - Mini version',
-    children: React.createElement(Steps02),
+    children: React.createElement(MiniVersion),
   },
   {
     label: 'Steps - With icon',
-    children: React.createElement(Steps03),
+    children: React.createElement(WithIcon),
   },
   {
     label: 'Steps - Switch Step',
-    children: React.createElement(Steps04),
+    children: React.createElement(SwitchStep),
   },
   {
     label: 'Steps - Vertical',
-    children: React.createElement(Steps05),
+    children: React.createElement(Vertical),
   },
   {
     label: 'Steps - Vertical mini version',
-    children: React.createElement(Steps06),
+    children: React.createElement(VerticalMiniVersion),
   },
   {
     label: 'Steps - Error status',
-    children: React.createElement(Steps07),
+    children: React.createElement(ErrorStatus),
   },
   {
     label: 'Steps - Dot Style',
-    children: React.createElement(Steps08),
+    children: React.createElement(DotStyle),
   },
   {
     label: 'Steps - Customized Dot Style',
-    children: React.createElement(Steps09),
+    children: React.createElement(CustomizedDotStyle),
   },
   {
     label: 'Steps - Clickable',
-    children: React.createElement(Steps10),
+    children: React.createElement(Clickable),
   },
   {
     label: 'Steps - Navigation Steps',
-    children: React.createElement(Steps11),
+    children: React.createElement(NavigationSteps),
   },
   {
     label: 'Steps - Steps with progress',
-    children: React.createElement(Steps12),
+    children: React.createElement(StepsWithProcess),
   },
   {
     label: 'Steps - Label Placement',
-    children: React.createElement(Steps13),
+    children: React.createElement(LabelPlacement),
   },
   {
     label: 'Steps - Inline Steps',
-    children: React.createElement(Steps14),
+    children: React.createElement(InlineSteps),
   },
 ]

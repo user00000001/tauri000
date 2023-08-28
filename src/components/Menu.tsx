@@ -71,7 +71,7 @@ const items: MenuProps['items'] = [
     key: 'alipay',
   },
 ];
-export const Menu01: React.FC = () => {
+export const TopNavigation: React.FC = () => {
   const [current, setCurrent] = useState('mail');
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
@@ -116,7 +116,7 @@ const items1: MenuProps['items'] = [
   getItem('Group', 'grp', null, [getItem('Option 13', '13'), getItem('Option 14', '14')], 'group'),
 ];
 
-export const Menu02: React.FC = () => {
+export const InlineMenu: React.FC = () => {
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
   };
@@ -132,7 +132,7 @@ export const Menu02: React.FC = () => {
   );
 };
 
-export const Menu03: React.FC = () => {
+export const CollapsedInlineMenu: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -174,7 +174,7 @@ const items2: MenuItem[] = [
   ]),
 ];
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-export const Menu04: React.FC = () => {
+export const OpenCurrentSubmenuOnly: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -198,11 +198,11 @@ export const Menu04: React.FC = () => {
 const onClick: MenuProps['onClick'] = (e) => {
   console.log('click', e);
 };
-export const Menu05: React.FC = () => (
+export const VerticalMenu: React.FC = () => (
   <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items2} />
 );
 
-export const Menu06: React.FC = () => {
+export const MenuThemes: React.FC = () => {
   const [theme, setTheme] = useState<MenuTheme>('dark');
   const [current, setCurrent] = useState('1');
   const changeTheme = (value: boolean) => {
@@ -250,7 +250,7 @@ function getItem1(
     theme,
   } as MenuItem;
 }
-export const Menu07: React.FC = () => {
+export const SubmenuTheme: React.FC = () => {
   const [theme, setTheme] = useState<MenuTheme>('light');
   const [current, setCurrent] = useState('1');
   const changeTheme = (value: boolean) => {
@@ -296,7 +296,7 @@ export const Menu07: React.FC = () => {
   );
 };
 
-export const Menu08: React.FC = () => {
+export const SwitchTheMenuType: React.FC = () => {
   const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
   const [theme, setTheme] = useState<MenuTheme>('light');
   const changeMode = (value: boolean) => {
@@ -327,34 +327,34 @@ export const Menu08: React.FC = () => {
 export default [
   {
     label: "Menu - Top Navigation",
-    children: React.createElement(Menu01),
+    children: React.createElement(TopNavigation),
   },
   {
     label: "Menu - Inline menu",
-    children: React.createElement(Menu02),
+    children: React.createElement(InlineMenu),
   },
   {
     label: "Menu - Collapsed inline menu",
-    children: React.createElement(Menu03),
+    children: React.createElement(CollapsedInlineMenu),
   },
   {
     label: "Menu - Open current submenu only",
-    children: React.createElement(Menu04),
+    children: React.createElement(OpenCurrentSubmenuOnly),
   },
   {
     label: "Menu - Vertical menu",
-    children: React.createElement(Menu05),
+    children: React.createElement(VerticalMenu),
   },
   {
     label: "Menu - Menu Themes",
-    children: React.createElement(Menu06),
+    children: React.createElement(MenuThemes),
   },
   {
     label: "Menu - Sub-menu theme",
-    children: React.createElement(Menu07),
+    children: React.createElement(SubmenuTheme),
   },
   {
     label: "Menu - Switch the menu type",
-    children: React.createElement(Menu08),
+    children: React.createElement(SwitchTheMenuType),
   },
 ]

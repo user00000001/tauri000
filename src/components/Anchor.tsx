@@ -5,7 +5,7 @@ import {
   Col,
 } from "antd";
 
-export const Anchor01: React.FC = () => (
+export const Basic: React.FC = () => (
   <Row>
     <Col span={16}>
       <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.02)' }} />
@@ -36,7 +36,7 @@ export const Anchor01: React.FC = () => (
   </Row>
 );
 
-export const Anchor02: React.FC = () => (
+export const HorizontalAnchor: React.FC = () => (
   <>
     <div style={{ padding: '20px' }}>
       <Anchor
@@ -114,7 +114,7 @@ export const Anchor02: React.FC = () => (
   </>
 );
 
-export const Anchor03: React.FC = () => (
+export const StaticAnchor: React.FC = () => (
   <Anchor affix={false} items={[
     {
       key: '1',
@@ -150,7 +150,7 @@ const handleClick = (e: React.MouseEvent<HTMLElement>, link: { title: React.Reac
   e.preventDefault();
   console.log(link);
 };
-export const Anchor04: React.FC = () => (
+export const CustomizeTheOnClickEvent: React.FC = () => (
   <Anchor
     affix={false}
     onClick={handleClick}
@@ -187,7 +187,7 @@ export const Anchor04: React.FC = () => (
 );
 
 const getCurrentAnchor = () => '#components-anchor-demo-static';
-export const Anchor05: React.FC = () => (
+export const CustomizeTheAnchorHighlight: React.FC = () => (
   <Anchor
     affix={false}
     getCurrentAnchor={getCurrentAnchor}
@@ -223,7 +223,7 @@ export const Anchor05: React.FC = () => (
   />
 );
 
-export const Anchor06: React.FC = () => {
+export const SetAnchorScrollOffset: React.FC = () => {
   const topRef = React.useRef<HTMLDivElement>(null);
   const [targetOffset, setTargetOffset] = useState<number>();
   useEffect(() => {
@@ -291,7 +291,7 @@ export const Anchor06: React.FC = () => {
 const onChange = (link: string) => {
   console.log('Anchor:OnChange', link);
 }
-export const Anchor07: React.FC = () => (
+export const ListeningForAnchorLinkChange: React.FC = () => (
   <Anchor
     affix={false}
     onChange={onChange}
@@ -327,7 +327,7 @@ export const Anchor07: React.FC = () => (
   />
 );
 
-export const Anchor08: React.FC = () => (
+export const ReplaceHrefInHistory: React.FC = () => (
   <Row>
     <Col span={16}>
       <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.02)' }} />
@@ -362,34 +362,34 @@ export const Anchor08: React.FC = () => (
 export default [
   {
     label: "Anchor - Basic",
-    children: React.createElement(Anchor01),
+    children: React.createElement(Basic),
   },
   {
     label: "Anchor - Horizontal Anchor",
-    children: React.createElement(Anchor02),
+    children: React.createElement(HorizontalAnchor),
   },
   {
     label: "Anchor - Static Anchor",
-    children: React.createElement(Anchor03),
+    children: React.createElement(StaticAnchor),
   },
   {
     label: "Anchor - Customize the onClick event",
-    children: React.createElement(Anchor04),
+    children: React.createElement(CustomizeTheOnClickEvent),
   },
   {
     label: "Anchor - Customize the anchor highlight",
-    children: React.createElement(Anchor05),
+    children: React.createElement(CustomizeTheAnchorHighlight),
   },
   {
     label: "Anchor - Set Anchor scroll offset",
-    children: React.createElement(Anchor06),
+    children: React.createElement(SetAnchorScrollOffset),
   },
   {
     label: "Anchor - Listening for anchor link change",
-    children: React.createElement(Anchor07),
+    children: React.createElement(ListeningForAnchorLinkChange),
   },
   {
     label: "Anchor - Replace href in history",
-    children: React.createElement(Anchor08),
+    children: React.createElement(ReplaceHrefInHistory),
   },
 ]

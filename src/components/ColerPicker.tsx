@@ -18,9 +18,9 @@ import {
   DownOutlined, 
 } from "@ant-design/icons";
 
-export const ColorPicker01: React.FC = () => <ColorPicker />
+export const BasicUsage: React.FC = () => <ColorPicker />
 
-export const ColorPicker02: React.FC = () => (
+export const TriggerSize: React.FC = () => (
   <Space>
     <Space direction="vertical">
       <ColorPicker size="small" />
@@ -35,13 +35,13 @@ export const ColorPicker02: React.FC = () => (
   </Space>
 );
 
-export const ColorPicker03: React.FC = () => {
+export const ControlledMode: React.FC = () => {
   const { token } = theme.useToken();
   const [color, setColor] = useState<Color | string>(token.colorPrimary);
   return <ColorPicker value={color} onChange={setColor} />
 };
 
-export const ColorPicker04: React.FC = () => {
+export const ColorChangeCompleted: React.FC = () => {
   // const { message } = App.useApp();
   const [value, setValue] = useState<ColorPickerProps['value']>('#1677ff');
   return (
@@ -54,7 +54,7 @@ export const ColorPicker04: React.FC = () => {
   );
 };
 
-export const ColorPicker05: React.FC = () => {
+export const RenderingTriggerText: React.FC = () => {
   const [open, setOpen] = useState(false);
   return (
     <Space direction="vertical">
@@ -69,13 +69,13 @@ export const ColorPicker05: React.FC = () => {
   );
 };
 
-export const ColorPicker06: React.FC = () => <ColorPicker showText disabled/>
+export const Disable: React.FC = () => <ColorPicker showText disabled/>
 
-export const ColorPicker07: React.FC = () => <ColorPicker showText disabledAlpha/>
+export const DisableAlpha: React.FC = () => <ColorPicker showText disabledAlpha/>
 
-export const ColorPicker08: React.FC = () => <ColorPicker allowClear/>
+export const ClearColor: React.FC = () => <ColorPicker allowClear/>
 
-export const ColorPicker09: React.FC = () => {
+export const CustomTrigger: React.FC = () => {
   const { token } = theme.useToken();
   const [color, setColor] = useState<Color|string>(token.colorPrimary);
   const bgColor = useMemo<string>(()=>(typeof color === 'string' ? color : color.toHexString()), [color]);
@@ -91,9 +91,9 @@ export const ColorPicker09: React.FC = () => {
   );
 };
 
-export const ColorPicker10: React.FC = () => <ColorPicker trigger="hover"/>
+export const CustomTriggerEvent: React.FC = () => <ColorPicker trigger="hover"/>
 
-export const ColorPicker11: React.FC = () => {
+export const CustomFormat: React.FC = () => {
   const [colorHex, setColorHex] = useState<Color | string>('#1677ff');
   const [colorHsb, setColorHsb] = useState<Color | string>('hsb(215, 91%, 100%)');
   const [colorRgb, setColorRgb] = useState<Color | string>('rgb(22, 119, 255)');
@@ -164,7 +164,7 @@ export const ColorPicker11: React.FC = () => {
   );
 };
 
-export const ColorPicker12: React.FC = () => (
+export const PresetColors: React.FC = () => (
   <ColorPicker
     presets={[
       {
@@ -210,7 +210,7 @@ export const ColorPicker12: React.FC = () => (
   />
 );
 
-export const ColorPicker13: React.FC = () => (
+export const CustomRenderPanel: React.FC = () => (
   <Space direction="vertical">
     <Row align="middle">
       <Space>
@@ -334,54 +334,54 @@ export const ColorPicker13: React.FC = () => (
 export default [
   {
     label: "ColorPicker - Basic Usage",
-    children: React.createElement(ColorPicker01),
+    children: React.createElement(BasicUsage),
   },
   {
     label: "ColorPicker - Trigger size",
-    children: React.createElement(ColorPicker02),
+    children: React.createElement(TriggerSize),
   },
   {
     label: "ColorPicker - controlled mode",
-    children: React.createElement(ColorPicker03),
+    children: React.createElement(ControlledMode),
   },
   {
     label: "ColorPicker - Color change completed",
-    children: React.createElement(ColorPicker04),
+    children: React.createElement(ColorChangeCompleted),
   },
   {
     label: "ColorPicker - Rendering Trigger Text",
-    children: React.createElement(ColorPicker05),
+    children: React.createElement(RenderingTriggerText),
   },
   {
     label: "ColorPicker - Disable",
-    children: React.createElement(ColorPicker06),
+    children: React.createElement(Disable),
   },
   {
     label: "ColorPicker - Disable Alpha",
-    children: React.createElement(ColorPicker07),
+    children: React.createElement(DisableAlpha),
   },
   {
     label: "ColorPicker - Clear Color",
-    children: React.createElement(ColorPicker08),
+    children: React.createElement(ClearColor),
   },
   {
     label: "ColorPicker - Custom Trigger",
-    children: React.createElement(ColorPicker09),
+    children: React.createElement(CustomTrigger),
   },
   {
     label: "ColorPicker - Custom Trigger Event",
-    children: React.createElement(ColorPicker10),
+    children: React.createElement(CustomTriggerEvent),
   },
   {
     label: "ColorPicker - Color Format",
-    children: React.createElement(ColorPicker11),
+    children: React.createElement(CustomFormat),
   },
   {
     label: "ColorPicker - Preset Colors",
-    children: React.createElement(ColorPicker12),
+    children: React.createElement(PresetColors),
   },
   {
     label: "ColorPicker - Custom Render Panel",
-    children: React.createElement(ColorPicker13),
+    children: React.createElement(CustomRenderPanel),
   },
 ]

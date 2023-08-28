@@ -2,23 +2,23 @@ import { CommentOutlined, CustomerServiceOutlined, FileTextOutlined, QuestionCir
 import { FloatButton, Switch } from "antd";
 import React, { useState } from "react";
 
-const FButton01: React.FC = () => <FloatButton onClick={() => console.log('click')} />;
+const Basic: React.FC = () => <FloatButton onClick={() => console.log('click')} />;
 
-const FButton02: React.FC = () => (
+const Type: React.FC = () => (
   <>
     <FloatButton icon={<QuestionCircleOutlined />} type="primary" style={{ right: 24 }} />
     <FloatButton icon={<QuestionCircleOutlined />} type="default" style={{ right: 94 }} />
   </>
 );
 
-const FButton03: React.FC = () => (
+const Shap: React.FC = () => (
   <>
     <FloatButton shape="circle" type="primary" style={{ right: 94 }} icon={<CustomerServiceOutlined />} />
     <FloatButton shape="square" type="primary" style={{ right: 24 }} icon={<CustomerServiceOutlined />} />
   </>
 );
 
-const FButton04: React.FC = () => (
+const Description: React.FC = () => (
   <>
     <FloatButton icon={<FileTextOutlined />} description="HELP INFO" shape="square" style={{ right: 24 }} />
     <FloatButton description="HELP INFO" shape="square" style={{ right: 94 }} />
@@ -26,9 +26,9 @@ const FButton04: React.FC = () => (
   </>
 );
 
-const FButton05: React.FC = () => <FloatButton tooltip={<div>Documents</div>} />;
+const FloatButtonWithTooltip: React.FC = () => <FloatButton tooltip={<div>Documents</div>} />;
 
-const FButton06: React.FC = () => (
+const FloatButtonGroup: React.FC = () => (
   <>
     <FloatButton.Group shape="circle" style={{ right: 24 }}>
       <FloatButton icon={<QuestionCircleOutlined />} />
@@ -44,7 +44,7 @@ const FButton06: React.FC = () => (
   </>
 );
 
-const FButton07: React.FC = () => (
+const MenuMode: React.FC = () => (
   <>
     <FloatButton.Group trigger="click" type="primary" style={{ right: 24 }} icon={<CustomerServiceOutlined />}>
       <FloatButton />
@@ -57,7 +57,7 @@ const FButton07: React.FC = () => (
   </>
 );
 
-const FButton08: React.FC = () => {
+const ControlledMode: React.FC = () => {
   const [open, setOpen] = useState(true);
   const onChange = (checked: boolean) => {
     setOpen(checked);
@@ -73,7 +73,7 @@ const FButton08: React.FC = () => {
   );
 };
 
-const FButton09: React.FC = () => (
+const BackTop: React.FC = () => (
   <div style={{ height: '500vh', padding: 10 }}>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
@@ -89,7 +89,7 @@ const FButton09: React.FC = () => (
   </div>
 );
 
-const FButton10: React.FC = () => (
+const Badge: React.FC = () => (
   <>
     <FloatButton shape="circle" badge={{ dot: true }} style={{ right: 24 + 70 + 70 }} />
     <FloatButton.Group shape="circle" style={{ right: 24 + 70 }}>
@@ -105,57 +105,57 @@ const FButton10: React.FC = () => (
 );
 
 export {
-  FButton01,
-  FButton02,
-  FButton03,
-  FButton04,
-  FButton05,
-  FButton06,
-  FButton07,
-  FButton08,
-  FButton09,
-  FButton10,
+  Basic,
+  Type,
+  Shap,
+  Description,
+  FloatButtonWithTooltip,
+  FloatButtonGroup,
+  MenuMode,
+  ControlledMode,
+  BackTop,
+  Badge,
 };
 
 export default [
   {
     label: "FloatButton - Basic",
-    children: <FButton01 />
+    children: <Basic />
   },
   {
     label: "FloatButton - Type",
-    children: <FButton02 />
+    children: <Type />
   },
   {
     label: "FloatButton - Shape",
-    children: <FButton03 />
+    children: <Shap />
   },
   {
     label: "FloatButton - Description",
-    children: <FButton04 />
+    children: <Description />
   },
   {
     label: "FloatButton - FloatButton with tooltip",
-    children: <FButton05 />
+    children: <FloatButtonWithTooltip />
   },
   {
     label: "FloatButton - FloatButton Group",
-    children: <FButton06 />
+    children: <FloatButtonGroup />
   },
   {
     label: "FloatButton - Menu mode",
-    children: <FButton07 />
+    children: <MenuMode />
   },
   {
     label: "FloatButton - Controlled mode",
-    children: <FButton08 />
+    children: <ControlledMode />
   },
   {
     label: "FloatButton - BackTop",
-    children: <FButton09 />
+    children: <BackTop />
   },
   {
     label: "FloatButton - badge",
-    children: <FButton10 />
+    children: <Badge />
   }
 ]

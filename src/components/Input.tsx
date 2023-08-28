@@ -20,9 +20,9 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
-export const Input01: React.FC = () => <Input placeholder="Basic usage" />
+export const BasicUsage: React.FC = () => <Input placeholder="Basic usage" />
 
-export const Input02: React.FC = () => (
+export const ThreeSizesOfInput: React.FC = () => (
   <>
     <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
     <br />
@@ -49,7 +49,7 @@ const selectAfter = (
     <Option value=".org">.org</Option>
   </Select>
 );
-export const Input03: React.FC = () => (
+export const PrePostTab: React.FC = () => (
   <Space direction="vertical">
     <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
@@ -73,7 +73,7 @@ const options = [
     label: 'Jiangsu',
   },
 ];
-export const Input04: React.FC = () => (
+export const CompactStyle: React.FC = () => (
   <Space direction="vertical" size="middle">
     <Space.Compact>
       <Input defaultValue="26888888" />
@@ -109,7 +109,7 @@ const suffix = (
   />
 );
 const onSearch = (value: string) => console.log(value);
-export const Input05: React.FC = () => (
+export const SearchBox: React.FC = () => (
   <Space direction="vertical">
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
@@ -138,7 +138,7 @@ export const Input05: React.FC = () => (
   </Space>
 );
 
-export const Input06: React.FC = () => (
+export const SearchBoxWithLoading: React.FC = () => (
   <>
     <Search placeholder="input search loading default" loading />
     <br />
@@ -151,7 +151,7 @@ export const Input06: React.FC = () => (
 );
 
 const { TextArea } = Input;
-export const Input07: React.FC = () => (
+export const TextArea_: React.FC = () => (
   <>
     <TextArea rows={4} />
     <br />
@@ -160,7 +160,7 @@ export const Input07: React.FC = () => (
   </>
 );
 
-export const Input08: React.FC = () => {
+export const AutosizingTheHeightToFitTheContent: React.FC = () => {
   const [value, setValue] = useState('');
   return (
     <>
@@ -221,13 +221,13 @@ const NumericInput = (props: NumericInputProps) => {
     </Tooltip>
   );
 };
-export const Input09: React.FC = () => {
+export const FormatTooltipInput: React.FC = () => {
   const [value, setValue] = useState('');
 
   return <NumericInput style={{ width: 120 }} value={value} onChange={setValue} />;
 };
 
-export const Input10: React.FC = () => (
+export const PrefixAndSuffix: React.FC = () => (
   <>
     <Input
       placeholder="Enter your username"
@@ -247,7 +247,7 @@ export const Input10: React.FC = () => (
   </>
 );
 
-export const Input11: React.FC = () => {
+export const PasswordBox: React.FC = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
   return (
     <Space direction="vertical">
@@ -272,7 +272,7 @@ export const Input11: React.FC = () => {
 const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   console.log(e);
 };
-export const Input12: React.FC = () => (
+export const WithClearIcon: React.FC = () => (
   <>
     <Input placeholder="input with clear icon" allowClear onChange={onChange} />
     <br />
@@ -281,7 +281,7 @@ export const Input12: React.FC = () => (
   </>
 );
 
-export const Input13: React.FC = () => (
+export const WithCharacterCounting: React.FC = () => (
   <>
     <Input showCount maxLength={20} onChange={onChange} />
     <br />
@@ -290,7 +290,7 @@ export const Input13: React.FC = () => (
   </>
 );
 
-export const Input14: React.FC = () => (
+export const TextareaWithCharacterCounting: React.FC = () => (
   <>
     <TextArea
       showCount
@@ -309,7 +309,7 @@ export const Input14: React.FC = () => (
   </>
 );
 
-export const Input15: React.FC = () => (
+export const Status: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Input status="error" placeholder="Error" />
     <Input status="warning" placeholder="Warning" />
@@ -318,9 +318,9 @@ export const Input15: React.FC = () => (
   </Space>
 );
 
-export const Input16: React.FC = () => <Input placeholder="Borderless" bordered={false} />;
+export const Borderless: React.FC = () => <Input placeholder="Borderless" bordered={false} />;
 
-export const Input17: React.FC = () => {
+export const Focus: React.FC = () => {
   const inputRef = useRef<InputRef>(null);
   const [input, setInput] = useState(true);
   const sharedProps = {
@@ -385,70 +385,70 @@ export const Input17: React.FC = () => {
 export default [
   {
     label: "Input - Basic usage",
-    children: React.createElement(Input01),
+    children: React.createElement(BasicUsage),
   },
   {
     label: "Input - Three sizes of Input",
-    children: React.createElement(Input02),
+    children: React.createElement(ThreeSizesOfInput),
   },
   {
     label: "Input - Pre / Post tab",
-    children: React.createElement(Input03),
+    children: React.createElement(PrePostTab),
   },
   {
     label: "Input - Compact Style",
-    children: React.createElement(Input04),
+    children: React.createElement(CompactStyle),
   },
   {
     label: "Input - Search box",
-    children: React.createElement(Input05),
+    children: React.createElement(SearchBox),
   },
   {
     label: "Input - Search box with loading",
-    children: React.createElement(Input06),
+    children: React.createElement(SearchBoxWithLoading),
   },
   {
     label: "Input - TextArea",
-    children: React.createElement(Input07),
+    children: React.createElement(TextArea_),
   },
   {
     label: "Input - Autosizing the height to fit the content",
-    children: React.createElement(Input08),
+    children: React.createElement(AutosizingTheHeightToFitTheContent),
   },
   {
     label: "Input - Format Tooltip Input",
-    children: React.createElement(Input09),
+    children: React.createElement(FormatTooltipInput),
   },
   {
     label: "Input - prefix and suffix",
-    children: React.createElement(Input10),
+    children: React.createElement(PrefixAndSuffix),
   },
   {
     label: "Input - Password box",
-    children: React.createElement(Input11),
+    children: React.createElement(PasswordBox),
   },
   {
     label: "Input - With clear icon",
-    children: React.createElement(Input12),
+    children: React.createElement(WithClearIcon),
   },
   {
     label: "Input - With character counting",
-    children: React.createElement(Input13),
+    children: React.createElement(WithCharacterCounting),
   },
   {
     label: "Input - Textarea With character counting",
-    children: React.createElement(Input14),
+    children: React.createElement(TextareaWithCharacterCounting),
   },
   {
     label: "Input - Status",
-    children: React.createElement(Input15),
+    children: React.createElement(Status),
   },
   {
     label: "Input - Borderless",
-    children: React.createElement(Input16),
+    children: React.createElement(Borderless),
   },
   {
     label: "Input - Focus",
-    children: React.createElement(Input17),
+    children: React.createElement(Focus),
   },
 ];

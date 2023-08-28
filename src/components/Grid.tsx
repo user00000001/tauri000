@@ -8,7 +8,7 @@ import {
   Slider,
 } from "antd";
 
-export const Grid01: React.FC = () => (
+export const BasicGrid: React.FC = () => (
   <>
     <Row>
       <Col span={24} style={{ backgroundColor: "lightgreen" }}>col</Col>
@@ -32,7 +32,7 @@ export const Grid01: React.FC = () => (
 );
 
 const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
-export const Grid02: React.FC = () => (
+export const GridGutter: React.FC = () => (
   <>
     <Divider orientation="left">Horizontal</Divider>
     <Row gutter={16}>
@@ -94,7 +94,7 @@ export const Grid02: React.FC = () => (
   </>
 );
 
-export const Grid03: React.FC = () => (
+export const ColumnOffset: React.FC = () => (
   <>
     <Row>
       <Col style={{ backgroundColor: 'lightskyblue' }} span={8}>col-8</Col>
@@ -110,14 +110,14 @@ export const Grid03: React.FC = () => (
   </>
 );
 
-export const Grid04: React.FC = () => (
+export const GridSort: React.FC = () => (
   <Row>
     <Col style={{ background: 'lightblue' }} span={18} push={6}>col-18 col-push-6</Col>
     <Col style={{ background: "lightskyblue" }} span={6} pull={18}>col-6 col-pull-18</Col>
   </Row>
 );
 
-export const Grid05: React.FC = () => (
+export const Typesetting: React.FC = () => (
   <>
     <Divider orientation="left">sub-element align left</Divider>
     <Row justify="start">
@@ -165,7 +165,7 @@ export const Grid05: React.FC = () => (
 );
 
 const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = props => <p style={{ height: props.value }} className={`height-${props.value}`}>{props.children}</p>
-export const Grid06: React.FC = () => (
+export const Alignment: React.FC = () => (
   <>
     <Divider orientation="left">Align Top</Divider>
     <Row justify="center" align="top" style={{ backgroundColor: "lightgrey" }}>
@@ -191,7 +191,7 @@ export const Grid06: React.FC = () => (
   </>
 );
 
-export const Grid07: React.FC = () => (<>
+export const Order: React.FC = () => (<>
   <Divider orientation="left">Normal</Divider>
   <Row>
     <Col style={{ backgroundColor: "lightskyblue" }} span={6} order={4}>
@@ -224,7 +224,7 @@ export const Grid07: React.FC = () => (<>
   </Row>
 </>);
 
-export const Grid08: React.FC = () => (<>
+export const FlexStretch: React.FC = () => (<>
   <Divider orientation="left">Percentage columns</Divider>
   <Row>
     <Col style={{ backgroundColor: "lightblue" }} flex={2}>2 / 5</Col>
@@ -249,7 +249,7 @@ export const Grid08: React.FC = () => (<>
   </Row>
 </>);
 
-export const Grid09: React.FC = () => (
+export const Responsive: React.FC = () => (
   <Row>
     <Col style={{ backgroundColor: "lightblue" }} xs={2} sm={4} md={6} lg={8} xl={10}>Col</Col>
     <Col style={{ backgroundColor: "lightskyblue" }} xs={20} sm={16} md={12} lg={8} xl={4}>Col</Col>
@@ -257,7 +257,7 @@ export const Grid09: React.FC = () => (
   </Row>
 );
 
-export const Grid10: React.FC = () => (
+export const MoreResponsive: React.FC = () => (
   <Row>
     <Col style={{ backgroundColor: "lightblue" }} xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
     <Col style={{ backgroundColor: "lightskyblue" }} xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
@@ -277,7 +277,7 @@ const colCounts: Record<PropertyKey, number> = {};
 [2, 3, 4, 6, 8, 12].forEach((value, i) => {
   colCounts[i] = value;
 });
-export const Grid11: React.FC = () => {
+export const Playground: React.FC = () => {
   const [gutterKey, setGutterKey] = useState(1);
   const [vgutterKey, setVgutterKey] = useState(1);
   const [colCountKey, setColCountKey] = useState(2);
@@ -318,7 +318,7 @@ export const Grid11: React.FC = () => {
 };
 
 const { useBreakpoint } = Grid;
-export const Grid12: React.FC = () => {
+export const UseBreakpointHook: React.FC = () => {
   const screens = useBreakpoint();
   return (<>
     Current break point:{' '}
@@ -331,50 +331,50 @@ export const Grid12: React.FC = () => {
 export default [
   {
     label: "Grid - Basic Grid",
-    children: <Grid01 />
+    children: <BasicGrid />
   },
   {
     label: "Grid - Grid Gutter",
-    children: <Grid02 />
+    children: <GridGutter />
   },
   {
     label: "Grid - Column offset",
-    children: <Grid03 />
+    children: <ColumnOffset />
   },
   {
     label: "Grid - Grid sort",
-    children: <Grid04 />
+    children: <GridSort />
   },
   {
     label: "Grid - Typesetting",
-    children: <Grid05 />
+    children: <Typesetting />
   },
   {
     label: "Grid - Alignment",
-    children: <Grid06 />
+    children: <Alignment />
   },
   {
     label: "Grid - Order",
-    children: <Grid07 />
+    children: <Order />
   },
   {
     label: "Grid - Flex Stretch",
-    children: <Grid08 />
+    children: <FlexStretch />
   },
   {
     label: "Grid - Responsive",
-    children: <Grid09 />
+    children: <Responsive />
   },
   {
     label: "Grid - More responsive",
-    children: <Grid10 />
+    children: <MoreResponsive />
   },
   {
     label: "Grid - Playground",
-    children: <Grid11 />
+    children: <Playground />
   },
   {
     label: "Grid - useBreakpoint Hook",
-    children: <Grid12 />
+    children: <UseBreakpointHook />
   },
 ]

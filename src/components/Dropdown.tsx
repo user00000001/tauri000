@@ -53,7 +53,7 @@ const items: MenuProps['items'] = [
     label: 'a danger item',
   },
 ];
-export const Dropdown01: React.FC = () => (
+export const Basic: React.FC = () => (
   <Dropdown menu={{ items }}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
@@ -64,7 +64,7 @@ export const Dropdown01: React.FC = () => (
   </Dropdown>
 );
 
-export const Dropdown02: React.FC = () => (
+export const Placement: React.FC = () => (
   <Space style={{ marginLeft: "200px", marginTop: "200px" }} direction="vertical">
     <Space wrap>
       <Dropdown menu={{ items }} placement="bottomLeft">
@@ -91,7 +91,7 @@ export const Dropdown02: React.FC = () => (
   </Space>
 );
 
-export const Dropdown03: React.FC = () => (
+export const Arrow: React.FC = () => (
   <>
     <Dropdown menu={{ items }} placement="bottomLeft" arrow>
       <Button>bottomLeft</Button>
@@ -115,7 +115,7 @@ export const Dropdown03: React.FC = () => (
   </>
 );
 
-export const Dropdown04: React.FC = () => (
+export const OtherElements: React.FC = () => (
   <Dropdown menu={{ items }}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
@@ -126,7 +126,7 @@ export const Dropdown04: React.FC = () => (
   </Dropdown>
 );
 
-export const Dropdown05: React.FC = () => (
+export const ArrowPointingAtTheCenter: React.FC = () => (
   <>
     <Dropdown menu={{ items }} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
       <Button>bottomLeft</Button>
@@ -150,7 +150,7 @@ export const Dropdown05: React.FC = () => (
   </>
 );
 
-export const Dropdown06: React.FC = () => (
+export const TriggerMode: React.FC = () => (
   <Dropdown menu={{ items }} trigger={['click']}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
@@ -164,7 +164,7 @@ export const Dropdown06: React.FC = () => (
 const onClick: MenuProps['onClick'] = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
-export const Dropdown07: React.FC = () => (
+export const ClickEvent: React.FC = () => (
   <Dropdown menu={{ items, onClick }}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
@@ -187,7 +187,7 @@ const menuProps = {
   items,
   onClick: handleMenuClick,
 };
-export const Dropdown08: React.FC = () => (
+export const ButtonWithDropdownMenu: React.FC = () => (
   <Space wrap>
     <Dropdown.Button menu={menuProps} onClick={handleButtonClick}>
       Dropdown
@@ -224,7 +224,7 @@ export const Dropdown08: React.FC = () => (
 );
 
 const { useToken } = theme;
-export const Dropdown09: React.FC = () => {
+export const Customdropdown: React.FC = () => {
   const { token } = useToken();
   const contentStyle: React.CSSProperties = {
     backgroundColor: token.colorBgElevated,
@@ -303,7 +303,7 @@ const items1: MenuProps['items'] = [
     ],
   },
 ];
-export const Dropdown10: React.FC = () => (
+export const CascadingMenu: React.FC = () => (
   <Dropdown menu={{ items: items1 }}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
@@ -314,7 +314,7 @@ export const Dropdown10: React.FC = () => (
   </Dropdown>
 );
 
-export const Dropdown11: React.FC = () => {
+export const TheWayOfHidingMenu: React.FC = () => {
   const [open, setOpen] = useState(false);
   const handleMenuClick: MenuProps['onClick'] = (e) => {
     if (e.key === '3') {
@@ -357,7 +357,7 @@ export const Dropdown11: React.FC = () => {
   );
 };
 
-export const Dropdown12: React.FC = () => {
+export const ContextMenu: React.FC = () => {
   const {
     token: { colorBgLayout, colorTextTertiary },
   } = theme.useToken();
@@ -379,7 +379,7 @@ export const Dropdown12: React.FC = () => {
   );
 };
 
-export const Dropdown13: React.FC = () => {
+export const Loading: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
   const enterLoading = (index: number) => {
     setLoadings((state) => {
@@ -424,7 +424,7 @@ export const Dropdown13: React.FC = () => {
   );
 };
 
-export const Dropdown14: React.FC = () => (
+export const SelectableMenu: React.FC = () => (
   <Dropdown
     menu={{
       items,
@@ -444,58 +444,58 @@ export const Dropdown14: React.FC = () => (
 export default [
   {
     label: 'Dropdown - Basic',
-    children: React.createElement(Dropdown01),
+    children: React.createElement(Basic),
   },
   {
     label: 'Dropdown - Placement',
-    children: React.createElement(Dropdown02),
+    children: React.createElement(Placement),
   },
   {
     label: 'Dropdown - Arrow',
-    children: React.createElement(Dropdown03),
+    children: React.createElement(Arrow),
   },
   {
     label: 'Dropdown - Other elements',
-    children: React.createElement(Dropdown04),
+    children: React.createElement(OtherElements),
   },
   {
     label: 'Dropdown - Arrow pointing at the center',
-    children: React.createElement(Dropdown05),
+    children: React.createElement(ArrowPointingAtTheCenter),
   },
   {
     label: 'Dropdown - Trigger mode',
-    children: React.createElement(Dropdown06),
+    children: React.createElement(TriggerMode),
   },
   {
     label: 'Dropdown - Click event',
-    children: React.createElement(Dropdown07),
+    children: React.createElement(ClickEvent),
   },
   {
     label: 'Dropdown - Button with dropdown menu',
-    children: React.createElement(Dropdown08),
+    children: React.createElement(ButtonWithDropdownMenu),
   },
   {
     label: 'Dropdown - Custom dropdown',
-    children: React.createElement(Dropdown09),
+    children: React.createElement(Customdropdown),
   },
   {
     label: 'Dropdown - Cascading menu',
-    children: React.createElement(Dropdown10),
+    children: React.createElement(CascadingMenu),
   },
   {
     label: 'Dropdown - The way of hiding menu.',
-    children: React.createElement(Dropdown11),
+    children: React.createElement(TheWayOfHidingMenu),
   },
   {
     label: 'Dropdown - Context Menu',
-    children: React.createElement(Dropdown12),
+    children: React.createElement(ContextMenu),
   },
   {
     label: 'Dropdown - Loading',
-    children: React.createElement(Dropdown13),
+    children: React.createElement(Loading),
   },
   {
     label: 'Dropdown - Selectable Menu',
-    children: React.createElement(Dropdown14),
+    children: React.createElement(SelectableMenu),
   },
 ]
