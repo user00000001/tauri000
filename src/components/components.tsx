@@ -28,6 +28,7 @@ import InputNumberXX from "./InputNumber";
 import MentionsXX from "./Mentions";
 import RadioXX from "./Radio";
 import RateXX from "./Rate";
+import SelectXX from "./Select";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -106,6 +107,7 @@ const items: TabsProps['items'] = [
   ...MentionsXX,
   ...RadioXX,
   ...RateXX,
+  ...SelectXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
