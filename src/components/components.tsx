@@ -32,6 +32,7 @@ import SelectXX from "./Select";
 import SliderXX from "./Slider";
 import SwitchXX from "./Switch";
 import TimePickerXX from "./TimePicker";
+import TransferXX from "./Transfer";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -114,6 +115,7 @@ const items: TabsProps['items'] = [
   ...SliderXX,
   ...SwitchXX,
   ...TimePickerXX,
+  ...TransferXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
