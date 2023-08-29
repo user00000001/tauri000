@@ -31,6 +31,7 @@ import RateXX from "./Rate";
 import SelectXX from "./Select";
 import SliderXX from "./Slider";
 import SwitchXX from "./Switch";
+import TimePickerXX from "./TimePicker";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -112,6 +113,7 @@ const items: TabsProps['items'] = [
   ...SelectXX,
   ...SliderXX,
   ...SwitchXX,
+  ...TimePickerXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
