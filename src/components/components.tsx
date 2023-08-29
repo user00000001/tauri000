@@ -30,6 +30,7 @@ import RadioXX from "./Radio";
 import RateXX from "./Rate";
 import SelectXX from "./Select";
 import SliderXX from "./Slider";
+import SwitchXX from "./Switch";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -110,6 +111,7 @@ const items: TabsProps['items'] = [
   ...RateXX,
   ...SelectXX,
   ...SliderXX,
+  ...SwitchXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
