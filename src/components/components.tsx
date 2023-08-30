@@ -42,6 +42,7 @@ import CardXX from "./Card";
 import CarouselXX from "./Carousel";
 import CollapseXX from "./Collapse";
 import DescriptionsXX from "./Descriptions";
+import EmptyXX from "./Empty";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -134,6 +135,7 @@ const items: TabsProps['items'] = [
   ...CarouselXX,
   ...CollapseXX,
   ...DescriptionsXX,
+  ...EmptyXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
