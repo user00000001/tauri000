@@ -48,6 +48,7 @@ import ListXX from "./List";
 import PopoverXX from "./Popover";
 import QRCodeXX from "./QRCode";
 import SegmentedXX from "./Segmented";
+import StatisticXX from "./Statistic";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -146,6 +147,7 @@ const items: TabsProps['items'] = [
   ...PopoverXX,
   ...QRCodeXX,
   ...SegmentedXX,
+  ...StatisticXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
