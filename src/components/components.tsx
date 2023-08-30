@@ -44,6 +44,7 @@ import CollapseXX from "./Collapse";
 import DescriptionsXX from "./Descriptions";
 import EmptyXX from "./Empty";
 import ImageXX from "./Image";
+import ListXX from "./List";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -138,6 +139,7 @@ const items: TabsProps['items'] = [
   ...DescriptionsXX,
   ...EmptyXX,
   ...ImageXX,
+  ...ListXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
