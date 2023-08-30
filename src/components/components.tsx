@@ -40,6 +40,7 @@ import BadgeXX from "./Badge";
 import CalenderXX from "./Calender";
 import CardXX from "./Card";
 import CarouselXX from "./Carousel";
+import CollapseXX from "./Collapse";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -130,6 +131,7 @@ const items: TabsProps['items'] = [
   ...CalenderXX,
   ...CardXX,
   ...CarouselXX,
+  ...CollapseXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
