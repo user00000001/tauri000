@@ -37,6 +37,7 @@ import TreeSelectXX from "./TreeSelect";
 import UploadXX from "./Upload";
 import AvatarXX from "./Avatar";
 import BadgeXX from "./Badge";
+import CalenderXX from "./Calender";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -124,6 +125,7 @@ const items: TabsProps['items'] = [
   ...UploadXX,
   ...AvatarXX,
   ...BadgeXX,
+  ...CalenderXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
