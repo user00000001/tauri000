@@ -41,6 +41,7 @@ import CalenderXX from "./Calender";
 import CardXX from "./Card";
 import CarouselXX from "./Carousel";
 import CollapseXX from "./Collapse";
+import DescriptionsXX from "./Descriptions";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -132,6 +133,7 @@ const items: TabsProps['items'] = [
   ...CardXX,
   ...CarouselXX,
   ...CollapseXX,
+  ...DescriptionsXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
