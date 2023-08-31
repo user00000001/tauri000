@@ -60,6 +60,7 @@ import AlertXX from "./Alert";
 import DrawerXX from "./Drawer";
 import MessageXX from "./Message";
 import ModalXX from "./Modal";
+import NotificationXX from "./Notification";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -170,6 +171,7 @@ const items: TabsProps['items'] = [
   ...DrawerXX,
   ...MessageXX,
   ...ModalXX,
+  ...NotificationXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
