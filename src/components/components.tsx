@@ -52,6 +52,7 @@ import StatisticXX from "./Statistic";
 import TableXX from "./Table";
 import TabsXX from "./Tabs";
 import TagXX from "./Tag";
+import TimelineXX from "./Timeline";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -154,6 +155,7 @@ const items: TabsProps['items'] = [
   ...TableXX,
   ...TabsXX,
   ...TagXX,
+  ...TimelineXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
