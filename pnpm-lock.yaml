@@ -82,6 +82,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
+  react-fast-marquee:
+    specifier: ^1.6.0
+    version: registry.npmmirror.com/react-fast-marquee@1.6.0(react-dom@18.2.0)(react@18.2.0)
   react-highlight-words:
     specifier: ^0.20.0
     version: registry.npmmirror.com/react-highlight-words@0.20.0(react@18.2.0)
@@ -2854,6 +2857,19 @@ packages:
       react: registry.npmmirror.com/react@18.2.0
       react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
       tslib: registry.npmmirror.com/tslib@2.0.1
+    dev: false
+
+  registry.npmmirror.com/react-fast-marquee@1.6.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-jtuwT9SNjrqxnE7lGZ8mTL1I8Q4+9G4aBta2p+y2Pa3SjR17QROblwrLICyM8rbjQFHgHawTHcaH9HvoVO2NOA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-fast-marquee/-/react-fast-marquee-1.6.0.tgz}
+    id: registry.npmmirror.com/react-fast-marquee/1.6.0
+    name: react-fast-marquee
+    version: 1.6.0
+    peerDependencies:
+      react: '>= 16.8.0 || 18.0.0'
+      react-dom: '>= 16.8.0 || 18.0.0'
+    dependencies:
+      react: registry.npmmirror.com/react@18.2.0
+      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
     dev: false
 
   registry.npmmirror.com/react-highlight-words@0.20.0(react@18.2.0):
