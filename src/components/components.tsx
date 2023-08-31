@@ -51,6 +51,7 @@ import SegmentedXX from "./Segmented";
 import StatisticXX from "./Statistic";
 import TableXX from "./Table";
 import TabsXX from "./Tabs";
+import TagXX from "./Tag";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -152,6 +153,7 @@ const items: TabsProps['items'] = [
   ...StatisticXX,
   ...TableXX,
   ...TabsXX,
+  ...TagXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
