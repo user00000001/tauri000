@@ -62,6 +62,7 @@ import MessageXX from "./Message";
 import ModalXX from "./Modal";
 import NotificationXX from "./Notification";
 import PopconfirmXX from "./Popconfirm";
+import ProgressXX from "./Progress";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -174,6 +175,7 @@ const items: TabsProps['items'] = [
   ...ModalXX,
   ...NotificationXX,
   ...PopconfirmXX,
+  ...ProgressXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
