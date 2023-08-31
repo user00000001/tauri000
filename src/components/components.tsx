@@ -58,6 +58,7 @@ import TourXX from "./Tour";
 import TreeXX from "./Tree";
 import AlertXX from "./Alert";
 import DrawerXX from "./Drawer";
+import MessageXX from "./Message";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -166,6 +167,7 @@ const items: TabsProps['items'] = [
   ...TreeXX,
   ...AlertXX,
   ...DrawerXX,
+  ...MessageXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
