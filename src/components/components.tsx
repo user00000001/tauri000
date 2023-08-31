@@ -54,6 +54,7 @@ import TabsXX from "./Tabs";
 import TagXX from "./Tag";
 import TimelineXX from "./Timeline";
 import TooltipXX from "./Tooltip";
+import TourXX from "./Tour";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -158,6 +159,7 @@ const items: TabsProps['items'] = [
   ...TagXX,
   ...TimelineXX,
   ...TooltipXX,
+  ...TourXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
