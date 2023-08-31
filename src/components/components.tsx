@@ -50,6 +50,7 @@ import QRCodeXX from "./QRCode";
 import SegmentedXX from "./Segmented";
 import StatisticXX from "./Statistic";
 import TableXX from "./Table";
+import TabsXX from "./Tabs";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -150,6 +151,7 @@ const items: TabsProps['items'] = [
   ...SegmentedXX,
   ...StatisticXX,
   ...TableXX,
+  ...TabsXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
