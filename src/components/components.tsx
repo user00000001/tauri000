@@ -68,6 +68,7 @@ import SkeletonXX from "./Skeleton";
 import SpinXX from "./Spin";
 import WatermarkXX from "./Watermark";
 import AffixXX from "./Affix";
+import AppXX from "./App";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -186,6 +187,7 @@ const items: TabsProps['items'] = [
   ...SpinXX,
   ...WatermarkXX,
   ...AffixXX,
+  ...AppXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
