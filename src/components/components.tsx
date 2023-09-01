@@ -66,6 +66,7 @@ import ProgressXX from "./Progress";
 import ResultXX from "./Result";
 import SkeletonXX from "./Skeleton";
 import SpinXX from "./Spin";
+import WatermarkXX from "./Watermark";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -182,6 +183,7 @@ const items: TabsProps['items'] = [
   ...ResultXX,
   ...SkeletonXX,
   ...SpinXX,
+  ...WatermarkXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }

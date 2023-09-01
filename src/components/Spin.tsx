@@ -1,6 +1,7 @@
 import { LoadingOutlined } from "@ant-design/icons";
 import { Alert, Space, Spin, Switch } from "antd";
 import React, { useState } from "react";
+import "./Spin.css"
 
 export const BasicUsage: React.FC = () => <Spin />;
 
