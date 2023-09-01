@@ -4,6 +4,9 @@ dependencies:
   '@ant-design/colors':
     specifier: ^7.0.0
     version: registry.npmmirror.com/@ant-design/colors@7.0.0
+  '@ant-design/happy-work-theme':
+    specifier: ^1.0.0
+    version: registry.npmmirror.com/@ant-design/happy-work-theme@1.0.0(antd@5.8.3)(react-dom@18.2.0)(react@18.2.0)
   '@ant-design/icons':
     specifier: ^5.2.5
     version: registry.npmmirror.com/@ant-design/icons@5.2.5(react-dom@18.2.0)(react@18.2.0)
@@ -167,6 +170,28 @@ packages:
       react: registry.npmmirror.com/react@18.2.0
       react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
       stylis: registry.npmmirror.com/stylis@4.3.0
+    dev: false
+
+  registry.npmmirror.com/@ant-design/happy-work-theme@1.0.0(antd@5.8.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-BKuz5PZkGZwXqzDwTE9fiHYlpKdDyoGnApEih2MG1GF79/a/YekxBc4tdqocykDtWzt3z1wwmHv8AiB7EUTWsQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ant-design/happy-work-theme/-/happy-work-theme-1.0.0.tgz}
+    id: registry.npmmirror.com/@ant-design/happy-work-theme/1.0.0
+    name: '@ant-design/happy-work-theme'
+    version: 1.0.0
+    engines: {node: '>=8.x'}
+    peerDependencies:
+      antd: '>= 5.8.2'
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@ant-design/cssinjs': registry.npmmirror.com/@ant-design/cssinjs@1.16.2(react-dom@18.2.0)(react@18.2.0)
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime@7.22.10
+      '@ctrl/tinycolor': registry.npmmirror.com/@ctrl/tinycolor@3.6.0
+      antd: registry.npmmirror.com/antd@5.8.3(react-dom@18.2.0)(react@18.2.0)
+      classnames: registry.npmmirror.com/classnames@2.3.2
+      rc-motion: registry.npmmirror.com/rc-motion@2.7.3(react-dom@18.2.0)(react@18.2.0)
+      rc-util: registry.npmmirror.com/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)
+      react: registry.npmmirror.com/react@18.2.0
+      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
     dev: false
 
   registry.npmmirror.com/@ant-design/icons-svg@4.3.0:

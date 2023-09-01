@@ -69,6 +69,7 @@ import SpinXX from "./Spin";
 import WatermarkXX from "./Watermark";
 import AffixXX from "./Affix";
 import AppXX from "./App";
+import ConfigProviderXX from "./ConfigProvider";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -188,6 +189,7 @@ const items: TabsProps['items'] = [
   ...WatermarkXX,
   ...AffixXX,
   ...AppXX,
+  ...ConfigProviderXX,
 ].map((v, i) => ({ key: i.toString(), ...v }));
 
 export { items }
